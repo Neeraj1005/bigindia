@@ -1,22 +1,21 @@
 import { useRouter } from "next/router";
 
 const Product = ({ product }) => {
-  return <>
-  <h2>
-    productId {product.pro_id}
-  </h2>
-  <h2>
-    Title {product.name}
-  </h2>
-  </>;
+  console.log(product)
+  return (
+    <>
+      <div>
+        <h2>ID: {product.product.pro_id}</h2>
+        <h2>Name: {product.user.id}</h2>
+      </div>
+    </>
+  );
 };
 
 export async function getStaticPaths() {
-  // Fetch data from external API
   const res = await fetch(`https://digitalcrm.com/crm/api/get/products/list`);
   const listProduct = await res.json();
-
-  const ids = listProduct.map((product) => product.pro_id)
+  const ids = listProduct.map((prod) => prod.pro_id)
   const paths = ids.map((id) => ({params: {pro_id: id.toString()}}))
 
   return {
@@ -27,12 +26,13 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({params}) {
   const res = await fetch(`https://digitalcrm.com/crm/api/get/product/details?id=${params.pro_id}`);
+  console.log("hello nick")
   const product = await res.json();
 
   return { 
     props: { 
       product 
-    } 
+    }, 
   };
 }
 
