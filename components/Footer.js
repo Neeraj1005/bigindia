@@ -1,5 +1,5 @@
 // import Link from "next/link";
-// import Image from 'next/image'
+import Image from 'next/image'
 
 const Footer = () => {
   return (
@@ -156,15 +156,22 @@ const Footer = () => {
             <span className="text-lg mr-4">Download: </span>
             <span className="mr-3">
               <a href="#">
-                <img
-                    src="../pages/images/ios.png"
+                <Image
+                    src="/images/ios.png"
                     alt="Picture of the ios"
+                    width={108}
+                    height={35}
                 />
               </a>
             </span>
             <span>
               <a href="#">
-                <img className="" src="/pages/images/android.png" alt="Thumbnail" />
+                <Image 
+                className="" 
+                src="/images/android.png" 
+                alt="Thumbnail"
+                width={108}
+                height={35} />
               </a>
             </span>
           </div>
