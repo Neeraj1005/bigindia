@@ -7,7 +7,7 @@ const ProductHomeList = ({ products }) => {
       <div className="container mb-12 mx-auto px-4 md:px-12">
         <div className="flex flex-wrap -mx-1 lg:-mx-4">
           {products.map((product) => (
-            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/5">
+            <div key={product.pro_id} className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/5">
               <article className="overflow-hidden rounded-lg border shadow">
                 <Link href={`/product/${product.pro_id}`}>
                   <a>
@@ -63,22 +63,5 @@ const ProductHomeList = ({ products }) => {
     </>
   );
 };
-
-// export async function getStaticProps(context) {
-//     const res = await fetch(`https://digitalcrm.com/crm/api/get/products/list`)
-//     const products = await res.json()
-
-//     if (!products) {
-//       return {
-//         notFound: true,
-//       }
-//     }
-
-//     return {
-//       props: {
-//         products
-//       },
-//     }
-//   }
 
 export default ProductHomeList;

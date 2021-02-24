@@ -1,27 +1,38 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Product = ({ product }) => {
   const item = product.product;
+  const categoryName = item.tbl_productcategory.category;
+  const subCategoryName = item.tbl_product_subcategory.category;
   const currencyCode = product.user.currency.html_code;
   const slidePics = product.slidePics;
   return (
     <>
-      <div className="bg-white flex-grow pb-4 px-4" id="main-content">
+      <div key={item.pro_id} className="bg-white flex-grow pb-4 px-4" id="main-content">
         <nav className="container">
           <ol className="list-reset py-4 pl-4 rounded flex text-gray-400">
             <li className="px-2">
-              <a href="#" className="no-underline text-indigo">
-                Home
-              </a>
+              <Link href="/" className="no-underline text-indigo">
+                <a>Home</a>
+              </Link>
             </li>
             <li>/</li>
             <li className="px-2">
-              <a href="#" className="no-underline text-indigo">
-                Library
-              </a>
+              <Link 
+                href="/product" 
+                className="no-underline text-indigo">
+                <a>Products</a>
+              </Link>
             </li>
             <li>/</li>
-            <li className="px-2">Data</li>
+            <li className="px-2">
+              <Link href="#" className="no-underline text-indigo">
+                <a>{categoryName}</a>
+              </Link>
+            </li>
+            <li>/</li>
+            <li className="px-2">{subCategoryName}</li>
           </ol>
         </nav>
 
@@ -36,13 +47,22 @@ const Product = ({ product }) => {
             <a href="#" className="text-xl text-blue-500 my-3 block">
               {item.vendor ? item.vendor : ""}
             </a>
-            <p className="text-red-600 font-bold text-xl my-2"><span dangerouslySetInnerHTML={{ __html: currencyCode }} />{item.price}</p>
+            <p className="text-red-600 font-bold text-xl my-2">
+              <span dangerouslySetInnerHTML={{ __html: currencyCode }} />
+              {item.price}
+            </p>
             <p className="text-gray-600">
-              <span className="mr-5">Size: {(item.size) ? item.size + item.tbl_units.sortname : 'null'}</span> <span>Units: {item.tbl_units.name}</span>
+              <span className="mr-5">
+                Size: {item.size ? item.size + item.tbl_units.sortname : "null"}
+              </span>{" "}
+              <span>Units: {item.tbl_units.name}</span>
             </p>
             <div>
               <p className="text-xl mt-5 mb-2">Product Details</p>
-              <p className="text-gray-500" dangerouslySetInnerHTML={{ __html: item.description }} />
+              <p
+                className="text-gray-500"
+                dangerouslySetInnerHTML={{ __html: item.description }}
+              />
               <p className="mt-4">
                 <span className="border border-gray-400 rounded-full py-1 px-3">
                   {item.tbl_productcategory.category}
