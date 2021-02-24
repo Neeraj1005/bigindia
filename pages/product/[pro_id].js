@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 
 const Product = ({ product }) => {
-  console.log(product)
   return (
     <>
       <div>
@@ -26,7 +25,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({params}) {
   const res = await fetch(`https://digitalcrm.com/crm/api/get/product/details?id=${params.pro_id}`);
-  console.log("hello nick")
   const product = await res.json();
 
   return { 
