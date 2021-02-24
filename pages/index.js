@@ -1285,7 +1285,7 @@ export default function Home({products}) {
 }
 
 export async function getStaticProps(context) {
-  const res = await fetch(`https://digitalcrm.com/crm/api/get/products/list`)
+  const res = await fetch(`https://digitalcrm.com/crm/api/get/products/latest/featured/0/5`)
   const products = await res.json()
 
   if (!products) {

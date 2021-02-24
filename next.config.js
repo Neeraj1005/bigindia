@@ -1,5 +1,5 @@
 module.exports = {
     images: {
-      domains: ["supportcrm.com"],
+      domains: ["digitalcrm.com"],
     },
   };
