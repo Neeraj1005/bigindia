@@ -28,11 +28,11 @@ const Product = ({ product }) => {
             <li className="px-2">
               <Link href="#" className="no-underline text-indigo">
                 {/* <a>{categoryName}</a> */}
-                <a>Catd</a>
+                <a>{item.tbl_productcategory.category}</a>
               </Link>
             </li>
             <li>/</li>
-            <li className="px-2">subcat</li>
+            <li className="px-2">{item.tbl_product_subcategory.category}</li>
           </ol>
         </nav>
 
