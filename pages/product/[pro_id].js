@@ -28,7 +28,7 @@ const Product = ({ product }) => {
             <li className="px-2">
               <Link href="#" className="no-underline text-indigo">
                 {/* <a>{categoryName}</a> */}
-                <a>Cat</a>
+                <a>Catd</a>
               </Link>
             </li>
             <li>/</li>
