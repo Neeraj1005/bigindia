@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-const productLists = ({ allProducts, categoriesLists }) => {
+const productByCategory = ({ byCategory }) => {
+  const name = "Nick";
 
   return (
     <>
@@ -17,13 +18,42 @@ const productLists = ({ allProducts, categoriesLists }) => {
 
           <div className="mb-5">
             <p className="block px-5 py-1 font-bold text-xs">CATEGORY</p>
-            {categoriesLists.map((cat) => (
-              <Link
-                href={`category/${cat.slug}`}
-              >
-                <a className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600">{cat.category}</a>
-              </Link>
-            ))}
+            <a
+              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
+              href="#"
+            >
+              Software
+            </a>
+            <a
+              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
+              href="#"
+            >
+              Electronics
+            </a>
+            <a
+              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
+              href="#"
+            >
+              Electrical
+            </a>
+            <a
+              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
+              href="#"
+            >
+              Mechanical
+            </a>
+            <a
+              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
+              href="#"
+            >
+              Other
+            </a>
+            <a
+              className="border-t border-b block px-5 py-1 hover:bg-gray-100 text-gray-600"
+              href="#"
+            >
+              Fashion
+            </a>
           </div>
 
           <div className="mb-5">
@@ -88,7 +118,7 @@ const productLists = ({ allProducts, categoriesLists }) => {
 
           <div className="container mb-12 mx-auto px-4">
             <div className="flex flex-wrap -mx-1 lg:-mx-4">
-              {allProducts.map((product) => (
+              {byCategory.map((product) => (
                 <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/5">
                   <article className="overflow-hidden rounded-lg border shadow">
                     <Link href={`/product/${product.pro_id}`}>
@@ -112,11 +142,11 @@ const productLists = ({ allProducts, categoriesLists }) => {
                           {product.name}
                         </a>
                         <p className="text-gray-400">
-                          {/* <span
+                          <span
                             dangerouslySetInnerHTML={{
                               __html: product.currency.html_code,
                             }}
-                          /> */}
+                          />
                           {product.price}
                         </p>
                       </h1>
@@ -132,33 +162,28 @@ const productLists = ({ allProducts, categoriesLists }) => {
   );
 };
 
-export async function getStaticProps() {
-  const res = await fetch(`https://digitalcrm.com/crm/api/get/products/list`);
-
-  const res1 = await fetch(
-    `https://digitalcrm.com/crm/api/get/products/category/list`
-  );
-
-  const allProducts = await res.json();
-  const categoriesLists = await res1.json();
-
-  if (!allProducts) {
+export async function getStaticPaths() {
+    const res = await fetch(`https://digitalcrm.com/crm/api/get/products/list`);
+    const listProduct = await res.json();
+    const ids = listProduct.map((prod) => prod.slug);
+    const paths = ids.map((slug) => ({ params: { category: slug.toString() } }));
+  
     return {
-      notFound: true,
+      paths,
+      fallback: false,
     };
   }
-
-  if (!categoriesLists) {
+  
+  export async function getStaticProps({ params }) {
+    const res = await fetch(
+      `https://digitalcrm.com/crm/api/search/products/category/${params.category}`
+    );
+    const byCategory = await res.json();
+  
     return {
-      notFound: true,
+      props: {
+        byCategory,
+      },
     };
   }
-
-  return {
-    props: {
-      allProducts,
-      categoriesLists,
-    },
-  };
-}
-export default productLists;
+export default productByCategory;

@@ -36,7 +36,7 @@ const ProductHomeList = ({ products }) => {
                         {product.name}
                       </a>
                     </Link>
-                    <p className="text-gray-400">${product.price}</p>
+                    <p className="text-gray-400"><span dangerouslySetInnerHTML={{ __html: product.currency.html_code }} />{product.price}</p>
                   </h1>
                 </header>
                 <footer className="flex items-center justify-between leading-none p-2 md:p-4">
