@@ -8,7 +8,6 @@ const Product = ({ product }) => {
   const currencyCode = product.user.currency.html_code;
   const slidePics = product.slidePics;
   return (
-    <>
       <div key={item.pro_id} className="bg-white flex-grow pb-4 px-4" id="main-content">
         <nav className="container">
           <ol className="list-reset py-4 pl-4 rounded flex text-gray-400">
@@ -82,7 +81,6 @@ const Product = ({ product }) => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 
