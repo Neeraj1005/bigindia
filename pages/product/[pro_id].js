@@ -3,12 +3,12 @@ import { useRouter } from "next/router";
 
 const Product = ({ product }) => {
   const item = product.product;
-  const categoryName = (item.tbl_productcategory)
-    ? item.tbl_productcategory.category
-    : "";
-  const subCategoryName = (item.tbl_product_subcategory)
-    ? item.tbl_product_subcategory.category
-    : "";
+  // const categoryName = (item.tbl_productcategory)
+  //   ? item.tbl_productcategory.category
+  //   : "";
+  // const subCategoryName = (item.tbl_product_subcategory)
+  //   ? item.tbl_product_subcategory.category
+  //   : "";
   const currencyCode = product.user.currency.html_code;
   const slidePics = product.slidePics;
   return (
@@ -29,11 +29,13 @@ const Product = ({ product }) => {
           <li>/</li>
           <li className="px-2">
             <Link href="#" className="no-underline text-indigo">
-              <a>{categoryName}</a>
+              {/* <a>{categoryName}</a> */}
+              <a>{(item.tbl_productcategory) ? item.tbl_productcategory.category : ''}</a>
             </Link>
           </li>
           <li>/</li>
-          <li className="px-2">{subCategoryName}</li>
+          {/* <li className="px-2">{subCategoryName}</li> */}
+          <li className="px-2">{(item.tbl_product_subcategory) ? item.tbl_product_subcategory.category : ''}</li>
         </ol>
       </nav>
 
