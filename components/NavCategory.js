@@ -255,7 +255,7 @@ const NavCat = ({ categoriesLists }) => {
 
       <div className="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col">
         {categoriesLists.map((catList) => (
-          <span className="lg:inline-flex lg:w-auto lg:pb-3 w-auto px-4 py-2">
+          <span key={catList.procat_id} className="lg:inline-flex lg:w-auto lg:pb-3 w-auto px-4 py-2">
             <Link href={`/category/${catList.slug}`}>
               <a className="text-gray-800 hover:text-gray-600">
                 {catList.category}

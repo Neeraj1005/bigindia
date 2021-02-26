@@ -5,8 +5,9 @@ import Image from "next/image";
 import HomeHeader from "../components/HomeHeader";
 // import Dummy from "../components/Dummy";
 import HomeCategory from "../components/HomeCategory";
+import ProductBrand from "../components/ProductBrand";
 
-export default function Home({ products, categoriesLists }) {
+export default function Home({ products, categoriesLists, productBrandLists }) {
   return (
     <>
       <Head>
@@ -182,10 +183,12 @@ export default function Home({ products, categoriesLists }) {
             <div>
               <a className="text-white hover:text-blue-100" href="#">
                 <div>
-                  <img
+                  <Image
                     className="block object-fill w-30 h-30 rounded-full border-2 border-white p-1"
-                    src="images/ahmedabad.jpg"
+                    src="/images/ahmedabad.jpg"
                     alt="Thumbnail"
+                    width={150}
+                    height={150}
                   />
                 </div>
                 <p className="text-center mt-3 text-xl">Ahmedabad</p>
@@ -195,10 +198,12 @@ export default function Home({ products, categoriesLists }) {
             <div>
               <a className="text-white hover:text-blue-100" href="#">
                 <div>
-                  <img
+                  <Image
                     className="block object-fill w-30 h-30 rounded-full border-2 border-white p-1"
-                    src="images/kolkata.jpg"
+                    src="/images/kolkata.jpg"
                     alt="Thumbnail"
+                    width={150}
+                    height={150}
                   />
                 </div>
                 <p className="text-center mt-3 text-xl">Kolkata</p>
@@ -208,10 +213,12 @@ export default function Home({ products, categoriesLists }) {
             <div>
               <a className="text-white hover:text-blue-100" href="#">
                 <div>
-                  <img
+                  <Image
                     className="block object-fill w-30 h-30 rounded-full border-2 border-white p-1"
-                    src="images/pune.jpg"
+                    src="/images/pune.jpg"
                     alt="Thumbnail"
+                    width={150}
+                    height={150}
                   />
                 </div>
                 <p className="text-center mt-3 text-xl">Pune</p>
@@ -221,10 +228,12 @@ export default function Home({ products, categoriesLists }) {
             <div>
               <a className="text-white hover:text-blue-100" href="#">
                 <div>
-                  <img
+                  <Image
                     className="block object-fill w-30 h-30 rounded-full border-2 border-white p-1"
-                    src="images/surat.jpg"
+                    src="/images/surat.jpg"
                     alt="Thumbnail"
+                    width={150}
+                    height={150}
                   />
                 </div>
                 <p className="text-center mt-3 text-xl">Surat</p>
@@ -234,10 +243,12 @@ export default function Home({ products, categoriesLists }) {
             <div>
               <a className="text-white hover:text-blue-100" href="#">
                 <div>
-                  <img
+                  <Image
                     className="block object-fill w-30 h-30 rounded-full border-2 border-white p-1"
-                    src="images/jaipur.jpg"
+                    src="/images/jaipur.jpg"
                     alt="Thumbnail"
+                    width={150}
+                    height={150}
                   />
                 </div>
                 <p className="text-center mt-3 text-xl">Jaipur</p>
@@ -247,10 +258,12 @@ export default function Home({ products, categoriesLists }) {
             <div>
               <a className="text-white hover:text-blue-100" href="#">
                 <div>
-                  <img
+                  <Image
                     className="block object-fill w-30 h-30 rounded-full border-2 border-white p-1"
-                    src="images/hyderabad.jpg"
+                    src="/images/hyderabad.jpg"
                     alt="Thumbnail"
+                    width={150}
+                    height={150}
                   />
                 </div>
                 <p className="text-center mt-3 text-xl">Hyderabad</p>
@@ -260,160 +273,7 @@ export default function Home({ products, categoriesLists }) {
         </div>
       </div>
 
-      {/* <Dummy /> */}
-
-      <div className="bg-blue-500 py-10">
-        <h1 className="text-4xl font-extrabold text-white text-center">
-          Browse products by Brands
-        </h1>
-        <div className="max-w-4xl p-8 mx-auto">
-          <div className="grid grid-cols-2 gap-4 sm:gap-8 sm:grid-cols-3 md:grid-cols-6">
-            <div>
-              <a className="text-white hover:text-indigo-300" href="#">
-                <div>
-                  <img
-                    className="block object-fill w-30 h-30 rounded-full border-2 border-orange-500 p-1 bg-orange-600"
-                    src="images/brand1.jpg"
-                    alt="Thumbnail"
-                  />
-                </div>
-              </a>
-            </div>
-
-            <div>
-              <a className="text-white hover:text-indigo-300" href="#">
-                <div>
-                  <img
-                    className="block object-fill w-30 h-30 rounded-full border-2 border-orange-500 p-1 bg-orange-600"
-                    src="images/brand2.jpg"
-                    alt="Thumbnail"
-                  />
-                </div>
-              </a>
-            </div>
-
-            <div>
-              <a className="text-white hover:text-indigo-300" href="#">
-                <div>
-                  <img
-                    className="block object-fill w-30 h-30 rounded-full border-2 border-orange-500 p-1 bg-orange-600"
-                    src="images/brand3.jpg"
-                    alt="Thumbnail"
-                  />
-                </div>
-              </a>
-            </div>
-
-            <div>
-              <a className="text-white hover:text-indigo-300" href="#">
-                <div>
-                  <img
-                    className="block object-fill w-30 h-30 rounded-full border-2 border-orange-500 p-1 bg-orange-600"
-                    src="images/brand4.jpg"
-                    alt="Thumbnail"
-                  />
-                </div>
-              </a>
-            </div>
-
-            <div>
-              <a className="text-white hover:text-indigo-300" href="#">
-                <div>
-                  <img
-                    className="block object-fill w-30 h-30 rounded-full border-2 border-orange-500 p-1 bg-orange-600"
-                    src="images/brand5.jpg"
-                    alt="Thumbnail"
-                  />
-                </div>
-              </a>
-            </div>
-
-            <div>
-              <a className="text-white hover:text-indigo-300" href="#">
-                <div>
-                  <img
-                    className="block object-fill w-30 h-30 rounded-full border-2 border-orange-500 p-1 bg-orange-600"
-                    src="images/brand6.jpg"
-                    alt="Thumbnail"
-                  />
-                </div>
-              </a>
-            </div>
-
-            <div>
-              <a className="text-white hover:text-indigo-300" href="#">
-                <div>
-                  <img
-                    className="block object-fill w-30 h-30 rounded-full border-2 border-orange-500 p-1 bg-orange-600"
-                    src="images/brand7.jpg"
-                    alt="Thumbnail"
-                  />
-                </div>
-              </a>
-            </div>
-
-            <div>
-              <a className="text-white hover:text-indigo-300" href="#">
-                <div>
-                  <img
-                    className="block object-fill w-30 h-30 rounded-full border-2 border-orange-500 p-1 bg-orange-600"
-                    src="images/brand8.jpg"
-                    alt="Thumbnail"
-                  />
-                </div>
-              </a>
-            </div>
-
-            <div>
-              <a className="text-white hover:text-indigo-300" href="#">
-                <div>
-                  <img
-                    className="block object-fill w-30 h-30 rounded-full border-2 border-orange-500 p-1 bg-orange-600"
-                    src="images/brand9.jpg"
-                    alt="Thumbnail"
-                  />
-                </div>
-              </a>
-            </div>
-
-            <div>
-              <a className="text-white hover:text-indigo-300" href="#">
-                <div>
-                  <img
-                    className="block object-fill w-30 h-30 rounded-full border-2 border-orange-500 p-1 bg-orange-600"
-                    src="images/brand10.jpg"
-                    alt="Thumbnail"
-                  />
-                </div>
-              </a>
-            </div>
-
-            <div>
-              <a className="text-white hover:text-indigo-300" href="#">
-                <div>
-                  <img
-                    className="block object-fill w-30 h-30 rounded-full border-2 border-orange-500 p-1 bg-orange-600"
-                    src="images/brand11.jpg"
-                    alt="Thumbnail"
-                  />
-                </div>
-              </a>
-            </div>
-
-            <div>
-              <a className="text-white hover:text-indigo-300" href="#">
-                <div>
-                  <img
-                    className="block object-fill w-30 h-30 rounded-full border-2 border-orange-500 p-1 bg-orange-600"
-                    src="images/brand12.jpg"
-                    alt="Thumbnail"
-                  />
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+    <ProductBrand productBrandLists={productBrandLists} />
     </>
   );
 }
@@ -425,8 +285,12 @@ export async function getStaticProps() {
   const res1 = await fetch(
     `https://digitalcrm.com/crm/api/get/products/category/list`
   );
+  const resBrand = await fetch(
+    `https://digitalcrm.com/crm/api/get/product/brands/list`
+  );
   const products = await res.json();
   const categoriesLists = await res1.json();
+  const productBrandLists = await resBrand.json();
 
   if (!products) {
     return {
@@ -440,10 +304,17 @@ export async function getStaticProps() {
     };
   }
 
+  if (!productBrandLists) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       products,
       categoriesLists,
+      productBrandLists,
     },
   };
 }
