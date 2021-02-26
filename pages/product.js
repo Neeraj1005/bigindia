@@ -1,10 +1,13 @@
 import Link from "next/link";
 import ProductFilterSidebar from "../components/ProductFilterSidebar";
+import Head from "next/head";
 
 const productLists = ({ allProducts, categoriesLists }) => {
-
   return (
     <>
+      <Head>
+        <title>All Products</title>
+      </Head>
       <div className="flex">
         <ProductFilterSidebar categoriesLists={categoriesLists} />
 

@@ -18,12 +18,6 @@ const ProductHomeList = ({ products }) => {
                       width="150"
                       height="150"
                     />
-                    {/* <img
-                    alt={product.slug}
-                    className="block h-auto w-full"
-                    src={product.picture ? product.picture : "/#"}
-                    // src="https://digitalcrm.com/crm/uploads/products/1611043175.jpg"
-                  /> */}
                   </a>
                 </Link>
                 <header className="flex items-center justify-between leading-tight p-2 md:p-4">

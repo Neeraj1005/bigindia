@@ -1,9 +1,13 @@
 import Link from "next/link";
 import ProductFilterSidebar from "../../components/ProductFilterSidebar";
+import Head from "next/head";
 
 const productByCategory = ({ byCategory, categoriesLists }) => {
   return (
     <>
+     <Head>
+        <title>product by category</title>
+      </Head>
       <div className="flex">
         <ProductFilterSidebar categoriesLists={categoriesLists} />
         <div className="bg-white flex-grow pb-4 px-4" id="main-content">
