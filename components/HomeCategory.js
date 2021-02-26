@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const HomeCategory = ({ categoriesLists }) => {
   return (
     <>
@@ -7,19 +9,26 @@ const HomeCategory = ({ categoriesLists }) => {
       <div className="container mb-12 mx-auto px-4 md:px-12">
         <div className="flex flex-wrap -mx-1 lg:-mx-4">
           {categoriesLists.map((category) => (
-            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/6">
+            <div
+              key={category.procat_id}
+              className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/6"
+            >
               <article className="overflow-hidden rounded-lg">
                 <header className="flex items-center justify-between leading-tight p-2 md:p-4">
                   <h1 className="text-lg">
-                    <a
+                    <Link
                       className="no-underline hover:underline text-black"
-                      href="#"
+                      href={`category/${category.slug}`}
                     >
-                      {category.category}
-                    </a>
+                      <a>{category.category}</a>
+                    </Link>
                     {category.tbl_product_subcategory.map((subcategory) => (
                       <p className="text-gray-600 text-sm leading-7">
-                        <a className="hover:text-indigo-500" href="#">{subcategory.category}</a>
+                        <Link href={`subcategory/${subcategory.slug}`}>
+                          <a className="hover:text-indigo-500">
+                            {subcategory.category}
+                          </a>
+                        </Link>
                       </p>
                     ))}
                   </h1>

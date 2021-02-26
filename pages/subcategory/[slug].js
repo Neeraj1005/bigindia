@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const productByCategory = ({ byCategory }) => {
+const productBySubcategory = ({ bySubcategory }) => {
   return (
     <>
       <div className="flex">
@@ -103,20 +103,12 @@ const productByCategory = ({ byCategory }) => {
                   <a>Home</a>
                 </Link>
               </li>
-              {/* <li>/</li>
-              <li className="px-2">
-                <a href="#" className="no-underline text-indigo">
-                  Library
-                </a>
-              </li>
-              <li>/</li>
-              <li className="px-2">Data</li> */}
             </ol>
           </nav>
 
           <div className="container mb-12 mx-auto px-4">
             <div className="flex flex-wrap -mx-1 lg:-mx-4">
-              {byCategory.map((product) => (
+              {bySubcategory.map((product) => (
                 <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/5">
                   <article className="overflow-hidden rounded-lg border shadow">
                     <Link href={`/product/${product.pro_id}`}>
@@ -161,10 +153,10 @@ const productByCategory = ({ byCategory }) => {
 };
 
 export async function getStaticPaths() {
-    const res = await fetch(`https://digitalcrm.com/crm/api/get/products/list`);
+    const res = await fetch(`https://digitalcrm.com/crm/api/get/products/all`);
     const listProduct = await res.json();
-    const ids = listProduct.map((prod) => prod.slug);
-    const paths = ids.map((slug) => ({ params: { category: slug.toString() } }));
+    const ids = listProduct.map((prod) => prod.tbl_product_subcategory.slug);
+    const paths = ids.map((slug) => ({ params: { slug: slug.toString() } }));
   
     return {
       paths,
@@ -174,14 +166,14 @@ export async function getStaticPaths() {
   
   export async function getStaticProps({ params }) {
     const res = await fetch(
-      `https://digitalcrm.com/crm/api/search/products/category/${params.category}`
+      `https://digitalcrm.com/crm/api/search/products/subcategory/${params.slug}`
     );
-    const byCategory = await res.json();
+    const bySubcategory = await res.json();
   
     return {
       props: {
-        byCategory,
+        bySubcategory,
       },
     };
   }
-export default productByCategory;
+export default productBySubcategory;
