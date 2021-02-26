@@ -1,99 +1,11 @@
 import Link from "next/link";
+import ProductFilterSidebar from "../../components/ProductFilterSidebar";
 
-const productBySubcategory = ({ bySubcategory }) => {
+const productBySubcategory = ({ bySubcategory, categoriesLists }) => {
   return (
     <>
       <div className="flex">
-        <section
-          className="bg-white border-r flex-shrink-0 w-2/12"
-          id="left-side-panel"
-        >
-          <div className="mb-5">
-            <p className="flex px-2 pt-2 text-gray-500">
-              <span className="material-icons text-lg">filter_alt</span> Filters
-            </p>
-          </div>
-
-          <div className="mb-5">
-            <p className="block px-5 py-1 font-bold text-xs">CATEGORY</p>
-            <a
-              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
-              href="#"
-            >
-              Software
-            </a>
-            <a
-              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
-              href="#"
-            >
-              Electronics
-            </a>
-            <a
-              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
-              href="#"
-            >
-              Electrical
-            </a>
-            <a
-              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
-              href="#"
-            >
-              Mechanical
-            </a>
-            <a
-              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
-              href="#"
-            >
-              Other
-            </a>
-            <a
-              className="border-t border-b block px-5 py-1 hover:bg-gray-100 text-gray-600"
-              href="#"
-            >
-              Fashion
-            </a>
-          </div>
-
-          <div className="mb-5">
-            <p className="block px-5 py-1 font-bold text-xs">LOCATION</p>
-            <a
-              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
-              href="#"
-            >
-              New Delhi
-            </a>
-            <a
-              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
-              href="#"
-            >
-              Chandigarh
-            </a>
-            <a
-              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
-              href="#"
-            >
-              Mumbai
-            </a>
-            <a
-              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
-              href="#"
-            >
-              Dehradun
-            </a>
-            <a
-              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
-              href="#"
-            >
-              Haridwar
-            </a>
-            <a
-              className="border-t border-b block px-5 py-1 hover:bg-gray-100 text-gray-600"
-              href="#"
-            >
-              Rishikesh
-            </a>
-          </div>
-        </section>
+        <ProductFilterSidebar categoriesLists={categoriesLists} />
 
         <div className="bg-white flex-grow pb-4 px-4" id="main-content">
           <nav className="container">
@@ -103,6 +15,14 @@ const productBySubcategory = ({ bySubcategory }) => {
                   <a>Home</a>
                 </Link>
               </li>
+              <li>/</li>
+              <li className="px-2">
+                <a href="/product" className="no-underline text-indigo">
+                  Product
+                </a>
+              </li>
+              <li>/</li>
+              <li className="px-2"></li>
             </ol>
           </nav>
 
@@ -153,27 +73,40 @@ const productBySubcategory = ({ bySubcategory }) => {
 };
 
 export async function getStaticPaths() {
-    const res = await fetch(`https://digitalcrm.com/crm/api/get/products/all`);
-    const listProduct = await res.json();
-    const ids = listProduct.map((prod) => prod.tbl_product_subcategory.slug);
-    const paths = ids.map((slug) => ({ params: { slug: slug.toString() } }));
-  
+  const res = await fetch(`https://digitalcrm.com/crm/api/get/products/all`);
+  const listProduct = await res.json();
+  const ids = listProduct.map((prod) => prod.tbl_product_subcategory.slug);
+  const paths = ids.map((slug) => ({ params: { slug: slug.toString() } }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const res = await fetch(
+    `https://digitalcrm.com/crm/api/search/products/subcategory/${params.slug}`
+  );
+
+  const res1 = await fetch(
+    `https://digitalcrm.com/crm/api/get/products/category/list`
+  );
+  const categoriesLists = await res1.json();
+
+  const bySubcategory = await res.json();
+
+  if (!categoriesLists) {
     return {
-      paths,
-      fallback: false,
+      notFound: true,
     };
   }
-  
-  export async function getStaticProps({ params }) {
-    const res = await fetch(
-      `https://digitalcrm.com/crm/api/search/products/subcategory/${params.slug}`
-    );
-    const bySubcategory = await res.json();
-  
-    return {
-      props: {
-        bySubcategory,
-      },
-    };
-  }
+
+  return {
+    props: {
+      bySubcategory,
+      categoriesLists,
+    },
+  };
+}
 export default productBySubcategory;

@@ -13,7 +13,7 @@ export default function Home({ products, categoriesLists }) {
         <title>Welcome</title>
       </Head>
 
-      <NavCat />
+      <NavCat categoriesLists={categoriesLists} />
 
       <HomeHeader />
 

@@ -1,71 +1,12 @@
 import Link from "next/link";
+import ProductFilterSidebar from "../components/ProductFilterSidebar";
 
 const productLists = ({ allProducts, categoriesLists }) => {
 
   return (
     <>
       <div className="flex">
-        <section
-          className="bg-white border-r flex-shrink-0 w-2/12"
-          id="left-side-panel"
-        >
-          <div className="mb-5">
-            <p className="flex px-2 pt-2 text-gray-500">
-              <span className="material-icons text-lg">filter_alt</span> Filters
-            </p>
-          </div>
-
-          <div className="mb-5">
-            <p className="block px-5 py-1 font-bold text-xs">CATEGORY</p>
-            {categoriesLists.map((cat) => (
-              <Link
-                href={`category/${cat.slug}`}
-              >
-                <a className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600">{cat.category}</a>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mb-5">
-            <p className="block px-5 py-1 font-bold text-xs">LOCATION</p>
-            <a
-              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
-              href="#"
-            >
-              New Delhi
-            </a>
-            <a
-              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
-              href="#"
-            >
-              Chandigarh
-            </a>
-            <a
-              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
-              href="#"
-            >
-              Mumbai
-            </a>
-            <a
-              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
-              href="#"
-            >
-              Dehradun
-            </a>
-            <a
-              className="border-t block px-5 py-1 hover:bg-gray-100 text-gray-600"
-              href="#"
-            >
-              Haridwar
-            </a>
-            <a
-              className="border-t border-b block px-5 py-1 hover:bg-gray-100 text-gray-600"
-              href="#"
-            >
-              Rishikesh
-            </a>
-          </div>
-        </section>
+        <ProductFilterSidebar categoriesLists={categoriesLists} />
 
         <div className="bg-white flex-grow pb-4 px-4" id="main-content">
           <nav className="container">
@@ -75,14 +16,12 @@ const productLists = ({ allProducts, categoriesLists }) => {
                   <a>Home</a>
                 </Link>
               </li>
-              {/* <li>/</li>
+              <li>/</li>
               <li className="px-2">
-                <a href="#" className="no-underline text-indigo">
-                  Library
+                <a href="/product" className="no-underline text-indigo">
+                  Product
                 </a>
               </li>
-              <li>/</li>
-              <li className="px-2">Data</li> */}
             </ol>
           </nav>
 

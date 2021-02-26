@@ -12,7 +12,7 @@ const Product = ({ product }) => {
   const currencyCode = product.user.currency.html_code;
   const slidePics = product.slidePics;
   return (
-    <div className="bg-white flex-grow pb-4 px-4" id="main-content">
+    <div key={item.pro_id} className="bg-white flex-grow pb-4 px-4" id="main-content">
       <nav className="container">
         <ol className="list-reset py-4 pl-4 rounded flex text-gray-400">
           <li className="px-2">
@@ -28,7 +28,7 @@ const Product = ({ product }) => {
           </li>
           <li>/</li>
           <li className="px-2">
-            <Link href="#" className="no-underline text-indigo">
+            <Link href={`/category/${(item.tbl_productcategory) ? item.tbl_productcategory.slug : ''}`} className="no-underline text-indigo">
               {/* <a>{categoryName}</a> */}
               <a>{(item.tbl_productcategory) ? item.tbl_productcategory.category : ''}</a>
             </Link>
@@ -39,7 +39,7 @@ const Product = ({ product }) => {
         </ol>
       </nav>
 
-      <div key={item.pro_id} className="mb-8 p-2 w-full flex flex-wrap">
+      <div className="mb-8 p-2 w-full flex flex-wrap">
         <div className="w-full lg:w-1/3">
           {slidePics.map((img) => (
             <img src={img} alt="" width="400" />

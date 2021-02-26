@@ -1,4 +1,6 @@
-const NavCat = () => {
+import Link from "next/link";
+
+const NavCat = ({ categoriesLists }) => {
   return (
     <div className="flex items-center flex-wrap mx-auto shadow-lg">
       {/* <div className="flex">
@@ -252,54 +254,18 @@ const NavCat = () => {
       </div> */}
 
       <div className="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col">
-        <span className="lg:inline-flex lg:w-auto lg:pb-3 w-auto px-4 py-2">
-          <a className="text-gray-800 hover:text-gray-600" href="#">
-            Cars
-          </a>
-        </span>
-        <span className="lg:inline-flex lg:w-auto lg:pb-3 w-auto px-4 py-2">
-          <a className="text-gray-800 hover:text-gray-600" href="#">
-            Motorcycles
-          </a>
-        </span>
-        <span className="lg:inline-flex lg:w-auto lg:pb-3 w-auto px-4 py-2">
-          <a className="text-gray-800 hover:text-gray-600" href="#">
-            Mobile Phones
-          </a>
-        </span>
-        <span className="lg:inline-flex lg:w-auto lg:pb-3 w-auto px-4 py-2">
-          <a className="text-gray-800 hover:text-gray-600" href="#">
-            Houses & Apartments
-          </a>
-        </span>
-        <span className="lg:inline-flex lg:w-auto lg:pb-3 w-auto px-4 py-2">
-          <a className="text-gray-800 hover:text-gray-600" href="#">
-            Scooters
-          </a>
-        </span>
-        <span className="lg:inline-flex lg:w-auto lg:pb-3 w-auto px-4 py-2">
-          <a className="text-gray-800 hover:text-gray-600" href="#">
-            Commercial & Other Vehicles
-          </a>
-        </span>
-        <span className="lg:inline-flex lg:w-auto lg:pb-3 w-auto px-4 py-2">
-          <a className="text-gray-800 hover:text-gray-600" href="#">
-            Houses & Apartments
-          </a>
-        </span>
-        <span className="lg:inline-flex lg:w-auto lg:pb-3 w-auto px-4 py-2">
-          <a className="text-gray-800 hover:text-gray-600" href="#">
-            Industrial Equipments
-          </a>
-        </span>
-        <span className="lg:inline-flex lg:w-auto lg:pb-3 w-auto px-4 py-2">
-          <a className="text-gray-800 hover:text-gray-600" href="#">
-            Others
-          </a>
-        </span>
+        {categoriesLists.map((catList) => (
+          <span className="lg:inline-flex lg:w-auto lg:pb-3 w-auto px-4 py-2">
+            <Link href={`/category/${catList.slug}`}>
+              <a className="text-gray-800 hover:text-gray-600">
+                {catList.category}
+              </a>
+            </Link>
+          </span>
+        ))}
       </div>
     </div>
   );
 };
 
-export default NavCat
+export default NavCat;
