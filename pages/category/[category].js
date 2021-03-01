@@ -38,7 +38,7 @@ const productByCategory = ({ byCategory, categoriesLists }) => {
                 productsByCategory.map((product) => (
                   <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/5">
                     <article className="overflow-hidden rounded-lg border shadow">
-                      <Link href={`/product/${product.pro_id}`}>
+                      <Link href={`/product/${product.slug}`}>
                         <a>
                           <img
                             alt="Placeholder"
