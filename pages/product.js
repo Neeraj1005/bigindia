@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ProductFilterSidebar from "../components/ProductFilterSidebar";
 import Head from "next/head";
+import NavCat from "../components/NavCategory";
 
 const productLists = ({ allProducts, categoriesLists }) => {
   const myProducts = allProducts.data;
