@@ -9,6 +9,7 @@ const productLists = ({ allProducts, categoriesLists }) => {
       <Head>
         <title>All Products</title>
       </Head>
+      <NavCat categoriesLists={categoriesLists} />
       <div className="flex">
         <ProductFilterSidebar categoriesLists={categoriesLists} />
 
