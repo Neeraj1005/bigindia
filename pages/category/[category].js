@@ -64,6 +64,7 @@ const productByCategory = ({ byCategory, categoriesLists }) => {
                               __html: product.currency.html_code,
                             }}
                           /> */}
+                          <span>$</span>
                             {product.price}
                           </p>
                         </h1>
