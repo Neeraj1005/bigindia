@@ -44,7 +44,7 @@ const allCategory = ({ allCategory }) => {
 
 export async function getStaticProps() {
   const res = await fetch(
-    `https://digitalcrm.com/crm/api/get/products/category/list`
+    `https://digitalcrm.com/crm/api/get/products/category/list/0/1000`
   );
   const allCategory = await res.json();
 

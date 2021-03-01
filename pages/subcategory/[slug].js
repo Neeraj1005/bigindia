@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ProductFilterSidebar from "../../components/ProductFilterSidebar";
 import Head from "next/head";
+import NavCat from "../../components/NavCategory";
 
 const productBySubcategory = ({ bySubcategory, categoriesLists }) => {
   return (
@@ -8,6 +9,7 @@ const productBySubcategory = ({ bySubcategory, categoriesLists }) => {
       <Head>
         <title>product by subcategory</title>
       </Head>
+      <NavCat categoriesLists={categoriesLists} />
       <div className="flex">
         <ProductFilterSidebar categoriesLists={categoriesLists} />
 
@@ -21,9 +23,9 @@ const productBySubcategory = ({ bySubcategory, categoriesLists }) => {
               </li>
               <li>/</li>
               <li className="px-2">
-                <a href="/product" className="no-underline text-indigo">
-                  Product
-                </a>
+                <Link href="/product">
+                  <a className="no-underline text-indigo">Product</a>
+                </Link>
               </li>
               <li>/</li>
               <li className="px-2"></li>
@@ -32,7 +34,7 @@ const productBySubcategory = ({ bySubcategory, categoriesLists }) => {
 
           <div className="container mb-12 mx-auto px-4">
             <div className="flex flex-wrap -mx-1 lg:-mx-4">
-              {bySubcategory.map((product) => (
+              {bySubcategory.data.map((product) => (
                 <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/5">
                   <article className="overflow-hidden rounded-lg border shadow">
                     <Link href={`/product/${product.pro_id}`}>
@@ -56,11 +58,11 @@ const productBySubcategory = ({ bySubcategory, categoriesLists }) => {
                           {product.name}
                         </a>
                         <p className="text-gray-400">
-                          <span
+                          {/* <span
                             dangerouslySetInnerHTML={{
                               __html: product.currency.html_code,
                             }}
-                          />
+                          /> */}
                           {product.price}
                         </p>
                       </h1>
@@ -77,9 +79,9 @@ const productBySubcategory = ({ bySubcategory, categoriesLists }) => {
 };
 
 export async function getStaticPaths() {
-  const res = await fetch(`https://digitalcrm.com/crm/api/get/products/all`);
+  const res = await fetch(`https://digitalcrm.com/crm/api/get/products/list`);
   const listProduct = await res.json();
-  const ids = listProduct.map((prod) => prod.tbl_product_subcategory.slug);
+  const ids = listProduct.data.map((prod) => prod.subcategory_slug);
   const paths = ids.map((slug) => ({ params: { slug: slug.toString() } }));
 
   return {
@@ -90,11 +92,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const res = await fetch(
-    `https://digitalcrm.com/crm/api/search/products/subcategory/${params.slug}`
+    `https://digitalcrm.com/crm/api/get/products/subcategory/${params.slug}`
   );
 
   const res1 = await fetch(
-    `https://digitalcrm.com/crm/api/get/products/category/list`
+    `https://digitalcrm.com/crm/api/get/products/category/list/0/10`
   );
   const categoriesLists = await res1.json();
 

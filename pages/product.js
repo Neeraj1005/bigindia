@@ -3,6 +3,7 @@ import ProductFilterSidebar from "../components/ProductFilterSidebar";
 import Head from "next/head";
 
 const productLists = ({ allProducts, categoriesLists }) => {
+  const myProducts = allProducts.data;
   return (
     <>
       <Head>
@@ -21,16 +22,16 @@ const productLists = ({ allProducts, categoriesLists }) => {
               </li>
               <li>/</li>
               <li className="px-2">
-                <a href="/product" className="no-underline text-indigo">
-                  Product
-                </a>
+                <Link href="/product">
+                  <a className="no-underline text-indigo">Product</a>
+                </Link>
               </li>
             </ol>
           </nav>
 
           <div className="container mb-12 mx-auto px-4">
             <div className="flex flex-wrap -mx-1 lg:-mx-4">
-              {allProducts.map((product) => (
+              {myProducts.map((product) => (
                 <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/5">
                   <article className="overflow-hidden rounded-lg border shadow">
                     <Link href={`/product/${product.pro_id}`}>
@@ -78,7 +79,7 @@ export async function getStaticProps() {
   const res = await fetch(`https://digitalcrm.com/crm/api/get/products/list`);
 
   const res1 = await fetch(
-    `https://digitalcrm.com/crm/api/get/products/category/list`
+    `https://digitalcrm.com/crm/api/get/products/category/list/0/10`
   );
 
   const allProducts = await res.json();
