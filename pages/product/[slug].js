@@ -1,12 +1,54 @@
 import Link from "next/link";
 import Head from "next/head";
-import React from "react";
+import React, { useState } from "react";
 
 const Product = ({ product }) => {
   const item = product.product;
   const [showModal, setShowModal] = React.useState(false);
   const currencyCode = product.user.currency.html_code;
   const slidePics = product.slidePics;
+  const itemUnits = item.tbl_units ? item.tbl_units.sortname : "";
+  
+  
+  const [name, setName] = useState(false);
+  const [email, setEmail] = useState(false);
+  const [mobile, setMobile] = useState(false);
+  
+  
+  const getFormData = async (e) => {
+    e.preventDefault();
+    const res = await fetch(
+      `https://digitalcrm.com/crm/api/action/product/buynow/${item.slug}`,
+      {
+        body: JSON.stringify({
+          name: e.target.name.value,
+          email: e.target.email.value,
+          mobile: e.target.mobile.value,
+          // quantity: e.target.quantity.value,
+          // price: e.target.price.value,
+          quantity: 1, //byDefault we put 1
+          price: item.price,
+          pro_id: e.target.pro_id.value,
+          country: e.target.country.value,
+          message: e.target.message.value,
+          address: e.target.address.value,
+          city: e.target.city.value,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      }
+    );
+
+    const result = await res.json();
+    const validationError = result[0];
+    if (validationError === "Validation Error") {
+      console.log(result['error'].name === undefined)
+            // e.target.reset()
+      // console.log(result['error'].name,result['error'].mobile)
+    }
+  };
   return (
     <>
       <Head>
@@ -74,9 +116,9 @@ const Product = ({ product }) => {
             </p>
             <p className="text-gray-600">
               <span className="mr-5">
-                Size: {item.size ? item.size + item.tbl_units.sortname : "null"}
+                Size: {item.size ? item.size + itemUnits : null}
               </span>{" "}
-              <span>Units: {item.tbl_units.name}</span>
+              <span>Units: {item.tbl_units ? item.tbl_units.name : null}</span>
             </p>
             <div>
               <p className="text-xl mt-5 mb-2">Product Details</p>
@@ -123,178 +165,214 @@ const Product = ({ product }) => {
                     </button>
                   </div>
                   {/*body*/}
-                  <div className="relative p-6 flex-auto">
-                    <div class="flex -mx-2">
-                      <div class="mb-5 w-1/3 px-2">
-                        <label
-                          for="firstname"
-                          class="font-bold mb-1 text-gray-700 block"
-                        >
-                          Quantity
-                        </label>
+                  <form onSubmit={getFormData}>
+                    <div className="relative p-6 flex-auto">
+                      <div class="flex -mx-2">
                         <input
-                          type="text"
-                          class="border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-                          placeholder="10"
+                          type="hidden"
+                          name="pro_id"
+                          value={item.pro_id}
                         />
-                      </div>
-                      <div class="mb-5 w-1/3 px-2">
-                        <label
-                          for="firstname"
-                          class="font-bold mb-1 text-gray-700 block"
-                        >
-                          Price
-                        </label>
-                        <input
-                          type="text"
-                          class="border bg-gray-300 border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-                          placeholder="1999"
-                          readonly
-                        />
-                      </div>
-                      <div class="mb-5 w-1/3 px-2">
-                        <label
-                          for="firstname"
-                          class="font-bold mb-1 text-gray-700 block"
-                        >
-                          Total amount
-                        </label>
-                        <input
-                          type="text"
-                          class="border bg-gray-300 border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-                          placeholder="1999"
-                          readonly
-                        />
-                      </div>
-                    </div>
-
-                    <div class="flex -mx-2">
-                      <div class="mb-5 w-1/3 px-2">
-                        <label
-                          for="firstname"
-                          class="font-bold mb-1 text-gray-700 block"
-                        >
-                          Contact name
-                        </label>
-                        <input
-                          type="text"
-                          class="border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-                          placeholder=""
-                        />
-                      </div>
-                      <div class="mb-5 w-1/3 px-2">
-                        <label
-                          for="firstname"
-                          class="font-bold mb-1 text-gray-700 block"
-                        >
-                          Email ID
-                        </label>
-                        <input
-                          type="text"
-                          class="border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-                          placeholder=""
-                        />
+                        {/* <div class="mb-5 w-1/3 px-2">
+                          <label
+                            htmlFor="quantity"
+                            class="font-bold mb-1 text-gray-700 block"
+                          >
+                            Quantity
+                          </label>
+                          <input
+                            type="text"
+                            class="border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                            placeholder="1"
+                            name="quantity"
+                            value="1"
+                          />
+                        </div>
+                        <div class="mb-5 w-1/3 px-2">
+                          <label
+                            htmlFor="price"
+                            class="font-bold mb-1 text-gray-700 block"
+                          >
+                            Price
+                          </label>
+                          <input
+                            type="text"
+                            class="border bg-gray-300 border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                            placeholder="1999"
+                            name="price"
+                            value={item.price}
+                            readonly
+                          />
+                        </div>
+                        <div class="mb-5 w-1/3 px-2">
+                          <label
+                            htmlFor="total_amount"
+                            class="font-bold mb-1 text-gray-700 block"
+                          >
+                            Total amount
+                          </label>
+                          <input
+                            type="text"
+                            class="border bg-gray-300 border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                            placeholder=""
+                            name="total_amount"
+                            readonly
+                          />
+                        </div> */}
                       </div>
 
-                      <div class="mb-5 w-1/3 px-2">
-                        <label
-                          for="firstname"
-                          class="font-bold mb-1 text-gray-700 block"
-                        >
-                          Mobile
-                        </label>
-                        <input
-                          type="text"
-                          class="border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-                          placeholder=""
-                        />
-                      </div>
-                    </div>
+                      <div class="flex -mx-2">
+                        <div class="mb-5 w-1/3 px-2">
+                          <label
+                            htmlFor="name"
+                            class="font-bold mb-1 text-gray-700 block"
+                          >
+                            Contact name
+                          </label>
+                          <input
+                            type="text"
+                            class="border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                            placeholder=""
+                            name="name"
+                          />
+                          {name ? (
+                            <>
+                              <span className="text-red-600">
+                                Name field is required
+                              </span>
+                            </>
+                          ) : null}
+                        </div>
+                        <div class="mb-5 w-1/3 px-2">
+                          <label
+                            htmlFor="email"
+                            class="font-bold mb-1 text-gray-700 block"
+                          >
+                            Email ID
+                          </label>
+                          <input
+                            type="text"
+                            class="border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                            placeholder=""
+                            name="email"
+                          />
+                          {email ? (
+                            <>
+                              <span className="text-red-600">
+                                Email field is required
+                              </span>
+                            </>
+                          ) : null}
+                        </div>
 
-                    <div class="flex -mx-2">
-                      <div class="mb-5 w-full px-2">
-                        <label
-                          for="firstname"
-                          class="font-bold mb-1 text-gray-700 block"
-                        >
-                          Delivery address
-                        </label>
-                        <input
-                          type="text"
-                          class="border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-                          placeholder=""
-                        />
+                        <div class="mb-5 w-1/3 px-2">
+                          <label
+                            htmlFor="mobile"
+                            class="font-bold mb-1 text-gray-700 block"
+                          >
+                            Mobile
+                          </label>
+                          <input
+                            type="text"
+                            class="border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                            placeholder=""
+                            name="mobile"
+                          />
+                          {mobile ? (
+                            <>
+                              <span className="text-red-600">
+                                Mobile field is required
+                              </span>
+                            </>
+                          ) : null}
+                        </div>
                       </div>
-                    </div>
 
-                    <div class="flex -mx-2">
-                      <div class="mb-5 w-1/2 px-2">
-                        <label
-                          for="firstname"
-                          class="font-bold mb-1 text-gray-700 block"
-                        >
-                          Country
-                        </label>
-                        <select
-                          class="border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-                          name="country"
-                          id="country"
-                        >
-                          <option value="0">Select Country</option>
-                          <option value="1">Afghanistan - AF</option>
-                          <option value="2">Albania - AL</option>
-                          <option value="3">Algeria - DZ</option>
-                          <option value="4">American Samoa - AS</option>
-                        </select>
+                      <div class="flex -mx-2">
+                        <div class="mb-5 w-1/2 px-2">
+                          <label
+                            htmlFor="address"
+                            class="font-bold mb-1 text-gray-700 block"
+                          >
+                            Delivery address
+                          </label>
+                          <input
+                            type="text"
+                            class="border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                            placeholder=""
+                            name="address"
+                          />
+                        </div>
+                        <div class="mb-5 w-1/2 px-2">
+                          <label
+                            htmlFor="country"
+                            class="font-bold mb-1 text-gray-700 block"
+                          >
+                            Country
+                          </label>
+                          <select
+                            class="border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                            name="country"
+                            id="country"
+                          >
+                            <option value="0">Select Country</option>
+                            <option value="1">Afghanistan - AF</option>
+                            <option value="2">Albania - AL</option>
+                            <option value="3">Algeria - DZ</option>
+                            <option value="4">American Samoa - AS</option>
+                          </select>
+                        </div>
+                        <div class="mb-5 w-1/2 px-2">
+                          <label
+                            htmlFor="city"
+                            class="font-bold mb-1 text-gray-700 block"
+                          >
+                            City
+                          </label>
+                          <input
+                            type="text"
+                            class="border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                            placeholder=""
+                            name="city"
+                          />
+                        </div>
                       </div>
-                      <div class="mb-5 w-1/2 px-2">
-                        <label
-                          for="firstname"
-                          class="font-bold mb-1 text-gray-700 block"
-                        >
-                          City
-                        </label>
-                        <input
-                          type="text"
-                          class="border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-                          placeholder=""
-                        />
-                      </div>
-                    </div>
 
-                    <div class="flex -mx-2">
-                      <div class="mb-5 w-full px-2">
-                        <label
-                          for="firstname"
-                          class="font-bold mb-1 text-gray-700 block"
-                        >
-                          Message
-                        </label>
-                        <textarea
-                          type="text"
-                          class="border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
-                          placeholder=""
-                        ></textarea>
+                      <div class="flex -mx-2">
+                        <div class="mb-5 w-full px-2">
+                          <label
+                            htmlFor="message"
+                            class="font-bold mb-1 text-gray-700 block"
+                          >
+                            Message
+                          </label>
+                          <textarea
+                            type="text"
+                            class="border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                            placeholder=""
+                            name="message"
+                          ></textarea>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  {/*footer*/}
-                  <div className="flex items-center justify-end p-6 border-t border-solid border-gray-300 rounded-b">
-                    <button
-                      className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
-                      type="button"
-                      style={{ transition: "all .15s ease" }}
-                      onClick={() => setShowModal(false)}
-                    >
-                      Close
-                    </button>
-                    <button
-                      className="text-white bg-blue-500 active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-                      type="button"
-                    >
-                      Send
-                    </button>
-                  </div>
+                    {/*footer*/}
+                    <div className="flex items-center justify-end p-6 border-t border-solid border-gray-300 rounded-b">
+                      <button
+                        className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
+                        type="button"
+                        style={{ transition: "all .15s ease" }}
+                        onClick={() => setShowModal(false)}
+                      >
+                        Close
+                      </button>
+                      <button
+                        className="text-white bg-blue-500 active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                        type="submit"
+                      >
+                        Send
+                      </button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>

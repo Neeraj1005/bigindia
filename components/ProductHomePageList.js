@@ -1,5 +1,6 @@
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
+import styles from "../styles/custom.module.css";
 
 const ProductHomeList = ({ products }) => {
   return (
@@ -11,12 +12,10 @@ const ProductHomeList = ({ products }) => {
               <article className="overflow-hidden rounded-lg border shadow">
                 <Link href={`/product/${product.slug}`}>
                   <a>
-                    <Image
+                    <img
                       alt={product.slug}
-                      className="block h-auto w-full img-fluid"
+                      className={`block h-auto ${styles.cardImg}`}
                       src={product.picture ? product.picture : "/#"}
-                      width="150"
-                      height="150"
                     />
                   </a>
                 </Link>

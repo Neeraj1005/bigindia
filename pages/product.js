@@ -2,6 +2,7 @@ import Link from "next/link";
 import ProductFilterSidebar from "../components/ProductFilterSidebar";
 import Head from "next/head";
 import NavCat from "../components/NavCategory";
+import styles from "../styles/custom.module.css";
 
 const productLists = ({ allProducts, categoriesLists }) => {
   const myProducts = allProducts.data;
@@ -40,7 +41,7 @@ const productLists = ({ allProducts, categoriesLists }) => {
                       <a>
                         <img
                           alt="Placeholder"
-                          className="block h-auto w-full"
+                          className={`block h-auto w-full ${styles.cardImg}`}
                           src={product.picture ? product.picture : ""}
                         />
                       </a>
