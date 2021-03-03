@@ -4,17 +4,18 @@ import React, { useState } from "react";
 
 const Product = ({ product }) => {
   const item = product.product;
-  const [showModal, setShowModal] = React.useState(false);
   const currencyCode = product.user.currency.html_code;
   const slidePics = product.slidePics;
   const itemUnits = item.tbl_units ? item.tbl_units.sortname : "";
-  
-  
+
+  // Modal popup
+  const [showModal, setShowModal] = React.useState(false);
+  // Alert message
+  const [successMessage, setSuccessMessage] = React.useState(false);
+  //validation error message show
   const [name, setName] = useState(false);
-  const [email, setEmail] = useState(false);
   const [mobile, setMobile] = useState(false);
-  
-  
+
   const getFormData = async (e) => {
     e.preventDefault();
     const res = await fetch(
@@ -43,10 +44,17 @@ const Product = ({ product }) => {
 
     const result = await res.json();
     const validationError = result[0];
+    // console.log(result)
     if (validationError === "Validation Error") {
-      console.log(result['error'].name === undefined)
-            // e.target.reset()
-      // console.log(result['error'].name,result['error'].mobile)
+      result["error"].name ? setName(true) : setName(false);
+      result["error"].mobile ? setMobile(true) : setMobile(false);
+      // e.target.reset()
+    }
+    if (result.status === "success") {
+      console.log(result.status);
+      e.target.reset();
+      setShowModal(false);
+      setSuccessMessage(true);
     }
   };
   return (
@@ -98,6 +106,26 @@ const Product = ({ product }) => {
             </li>
           </ol>
         </nav>
+
+        {/* success popup */}
+        {successMessage ? (
+          <>
+            <div className="text-white px-6 py-4 border-0 rounded relative mb-4 bg-indigo-500">
+              <span className="text-xl inline-block mr-5 align-middle">
+                <i className="fas fa-bell" />
+              </span>
+              <span className="inline-block align-middle mr-8">
+                <b className="capitalize">Order is taken.</b> Thank you for contacting...!
+              </span>
+              <button
+                className="absolute bg-transparent text-2xl font-semibold leading-none right-0 top-0 mt-4 mr-6 outline-none focus:outline-none"
+                onClick={() => setSuccessMessage(false)}
+              >
+                <span>×</span>
+              </button>
+            </div>
+          </>
+        ) : null}
 
         <div className="mb-8 p-2 w-full flex flex-wrap">
           <div className="w-full lg:w-1/3">
@@ -173,7 +201,8 @@ const Product = ({ product }) => {
                           name="pro_id"
                           value={item.pro_id}
                         />
-                        {/* <div class="mb-5 w-1/3 px-2">
+                        {/* 
+                        <div class="mb-5 w-1/3 px-2">
                           <label
                             htmlFor="quantity"
                             class="font-bold mb-1 text-gray-700 block"
@@ -218,7 +247,8 @@ const Product = ({ product }) => {
                             name="total_amount"
                             readonly
                           />
-                        </div> */}
+                        </div> 
+                        */}
                       </div>
 
                       <div class="flex -mx-2">
@@ -256,13 +286,6 @@ const Product = ({ product }) => {
                             placeholder=""
                             name="email"
                           />
-                          {email ? (
-                            <>
-                              <span className="text-red-600">
-                                Email field is required
-                              </span>
-                            </>
-                          ) : null}
                         </div>
 
                         <div class="mb-5 w-1/3 px-2">
