@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ProductFilterSidebar from "../../components/ProductFilterSidebar";
 import Head from "next/head";
-import NavCat from "../../components/NavCategory";
+// import NavCat from "../../components/NavCategory";
 
 const productBySubcategory = ({ bySubcategory, categoriesLists }) => {
   return (
@@ -9,7 +9,7 @@ const productBySubcategory = ({ bySubcategory, categoriesLists }) => {
       <Head>
         <title>product by subcategory</title>
       </Head>
-      {/* <NavCat categoriesLists={categoriesLists} /> */}
+      {/* <NavCat categoryFilter={categoryFilter} /> */}
       <div className="flex">
         <ProductFilterSidebar categoriesLists={categoriesLists} />
 
@@ -41,7 +41,7 @@ const productBySubcategory = ({ bySubcategory, categoriesLists }) => {
                       <a>
                         <img
                           alt="Placeholder"
-                          className="block h-auto w-full"
+                          className="block h-auto w-full cardImg"
                           src={product.picture ? product.picture : ""}
                         />
                       </a>
@@ -98,20 +98,34 @@ export async function getStaticProps({ params }) {
   const res1 = await fetch(
     `https://digitalcrm.com/crm/api/get/products/category/list/0/10`
   );
-  const categoriesLists = await res1.json();
+
+  // const resCatFilter = await fetch(
+  //   `https://digitalcrm.com/crm/api/get/products/category/list/0/6`
+  // );
+
+  // const categoryFilter = await resCatFilter.json();
 
   const bySubcategory = await res.json();
+  
+  const categoriesLists = await res1.json();
+
 
   if (!categoriesLists) {
     return {
       notFound: true,
     };
   }
+  // if (!categoryFilter) {
+  //   return {
+  //     notFound: true,
+  //   };
+  // }
 
   return {
     props: {
       bySubcategory,
       categoriesLists,
+      // categoryFilter,
     },
   };
 }
