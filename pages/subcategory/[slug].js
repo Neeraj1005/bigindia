@@ -9,7 +9,7 @@ const productBySubcategory = ({ bySubcategory, categoriesLists }) => {
       <Head>
         <title>product by subcategory</title>
       </Head>
-      {/* <NavCat categoryFilter={categoryFilter} /> */}
+      {/* <NavCat categoriesLists={categoriesLists} /> */}
       <div className="flex">
         <ProductFilterSidebar categoriesLists={categoriesLists} />
 
@@ -41,7 +41,7 @@ const productBySubcategory = ({ bySubcategory, categoriesLists }) => {
                       <a>
                         <img
                           alt="Placeholder"
-                          className="block h-auto w-full cardImg"
+                          className="block h-auto w-full"
                           src={product.picture ? product.picture : ""}
                         />
                       </a>
@@ -98,13 +98,6 @@ export async function getStaticProps({ params }) {
   const res1 = await fetch(
     `https://digitalcrm.com/crm/api/get/products/category/list/0/10`
   );
-
-  // const resCatFilter = await fetch(
-  //   `https://digitalcrm.com/crm/api/get/products/category/list/0/6`
-  // );
-
-  // const categoryFilter = await resCatFilter.json();
-
   const categoriesLists = await res1.json();
 
   const bySubcategory = await res.json();
@@ -114,17 +107,11 @@ export async function getStaticProps({ params }) {
       notFound: true,
     };
   }
-  // if (!categoryFilter) {
-  //   return {
-  //     notFound: true,
-  //   };
-  // }
 
   return {
     props: {
       bySubcategory,
       categoriesLists,
-      // categoryFilter,
     },
   };
 }
