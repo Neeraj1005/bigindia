@@ -3,7 +3,7 @@ import ProductFilterSidebar from "../../components/ProductFilterSidebar";
 import Head from "next/head";
 import NavCat from "../../components/NavCategory";
 
-const productBySubcategory = ({ bySubcategory, categoriesLists, categoryFilter }) => {
+const productBySubcategory = ({ bySubcategory, categoriesLists }) => {
   return (
     <>
       <Head>
