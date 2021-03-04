@@ -98,10 +98,13 @@ export async function getStaticProps({ params }) {
   const res1 = await fetch(
     `https://digitalcrm.com/crm/api/get/products/category/list/0/10`
   );
-  const resCatFilter = await fetch(
-    `https://digitalcrm.com/crm/api/get/products/category/list/0/6`
-  );
-  const categoryFilter = await resCatFilter.json();
+
+  // const resCatFilter = await fetch(
+  //   `https://digitalcrm.com/crm/api/get/products/category/list/0/6`
+  // );
+
+  // const categoryFilter = await resCatFilter.json();
+
   const categoriesLists = await res1.json();
 
   const bySubcategory = await res.json();
@@ -121,7 +124,7 @@ export async function getStaticProps({ params }) {
     props: {
       bySubcategory,
       categoriesLists,
-      categoryFilter,
+      // categoryFilter,
     },
   };
 }
