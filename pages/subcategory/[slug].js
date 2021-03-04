@@ -41,7 +41,7 @@ const productBySubcategory = ({ bySubcategory, categoriesLists }) => {
                       <a>
                         <img
                           alt="Placeholder"
-                          className="block h-auto w-full"
+                          className="block h-auto w-full cardImg"
                           src={product.picture ? product.picture : ""}
                         />
                       </a>
