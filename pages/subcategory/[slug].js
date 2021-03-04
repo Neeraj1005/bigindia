@@ -114,11 +114,11 @@ export async function getStaticProps({ params }) {
       notFound: true,
     };
   }
-  if (!categoryFilter) {
-    return {
-      notFound: true,
-    };
-  }
+  // if (!categoryFilter) {
+  //   return {
+  //     notFound: true,
+  //   };
+  // }
 
   return {
     props: {
