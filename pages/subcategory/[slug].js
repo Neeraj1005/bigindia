@@ -9,7 +9,7 @@ const productBySubcategory = ({ bySubcategory, categoriesLists }) => {
       <Head>
         <title>product by subcategory</title>
       </Head>
-      {/* <NavCat categoryFilter={categoryFilter} /> */}
+      <NavCat categoriesLists={categoriesLists} />
       <div className="flex">
         <ProductFilterSidebar categoriesLists={categoriesLists} />
 

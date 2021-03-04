@@ -5,14 +5,14 @@ import HomeHeader from "../components/HomeHeader";
 import HomeCategory from "../components/HomeCategory";
 import ProductBrand from "../components/ProductBrand";
 
-export default function Home({ products, categoriesLists, productBrandLists, categoryFilter }) {
+export default function Home({ products, categoriesLists, productBrandLists }) {
   return (
     <>
       <Head>
         <title>Welcome</title>
       </Head>
 
-      <NavCat categoryFilter={categoryFilter} />
+      <NavCat categoriesLists={categoriesLists} />
 
       <HomeHeader />
 

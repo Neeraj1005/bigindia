@@ -3,14 +3,14 @@ import ProductFilterSidebar from "../../components/ProductFilterSidebar";
 import Head from "next/head";
 import NavCat from "../../components/NavCategory";
 
-const productByCategory = ({ byCategory, categoriesLists, categoryFilter }) => {
+const productByCategory = ({ byCategory, categoriesLists }) => {
   const productsByCategory = byCategory.data;
   return (
     <>
       <Head>
         <title>product by category</title>
       </Head>
-      <NavCat categoryFilter={categoryFilter} />
+      <NavCat categoriesLists={categoriesLists} />
       <div className="flex">
         <ProductFilterSidebar categoriesLists={categoriesLists} />
         <div className="bg-white flex-grow pb-4 px-4" id="main-content">
