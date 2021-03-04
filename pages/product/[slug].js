@@ -16,6 +16,7 @@ const Product = ({ product }) => {
 
   const validate = (values) => {
     const errors = {};
+    // console.log(console.count(),formik)
 
     if (!values.mobile) {
       errors.mobile = "Required";
@@ -230,14 +231,16 @@ const Product = ({ product }) => {
                           </label>
                           <input
                             type="text"
-                            className={`border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium`}
+                            className={`border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium 
+                            ${(formik.errors && formik.errors.name) ? 'required' : ''}
+                            `}
                             placeholder=""
                             name="name"
                             onChange={formik.handleChange}
                             values={formik.values.name}
                             onBlur={formik.errors.handleBlur}
                           />
-                          {formik.touched.name && formik.errors.name ? (
+                          {formik.errors.name ? (
                             <span className="text-red-600 text-xs">
                               {formik.errors.name}
                             </span>
@@ -265,17 +268,18 @@ const Product = ({ product }) => {
                             htmlFor="mobile"
                             className="font-bold mb-1 text-gray-700 block"
                           >
-                            Mobile
+                            Mobile {(formik.dirty) ? 'true' : 'false'}
                           </label>
                           <input
-                            className="border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
+                            className={`border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium
+                            ${(formik.errors && formik.errors.mobile) ? 'required' : ''}`}
                             placeholder=""
                             name="mobile"
                             onChange={formik.handleChange}
                             values={formik.values.mobile}
                             onBlur={formik.errors.handleBlur}
                           />
-                          {formik.touched.mobile && formik.errors.mobile ? (
+                          {formik.errors.mobile ? (
                             <span className="text-red-600 text-xs">
                               {formik.errors.mobile}
                             </span>
