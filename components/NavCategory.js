@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-const NavCat = ({ categoriesLists }) => {
+const NavCat = ({ categoryFilter }) => {
   const [dropdownMenu, setdropdownMenu] = React.useState(false);
   return (
     <div className="flex items-center flex-wrap mx-auto shadow-lg">
@@ -21,7 +21,7 @@ const NavCat = ({ categoriesLists }) => {
               <>
                 <div className="mega-menu mb-16 sm:mb-0 border-t shadow bg-white">
                   <div className="container w-full flex flex-wrap justify-between mx-2">
-                    {categoriesLists.map((catLists, index, arr) => (
+                    {categoryFilter.map((catLists, index, arr) => (
                       <ul
                         className={
                           index === arr.length - 1
@@ -66,7 +66,7 @@ const NavCat = ({ categoriesLists }) => {
       </div>
 
       <div className="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col">
-        {categoriesLists.map((catList) => (
+        {categoryFilter.map((catList) => (
           <span
             key={catList.procat_id}
             className="lg:inline-flex lg:w-auto lg:pb-3 w-auto px-4 py-2"

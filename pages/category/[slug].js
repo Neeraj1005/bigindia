@@ -3,14 +3,14 @@ import ProductFilterSidebar from "../../components/ProductFilterSidebar";
 import Head from "next/head";
 import NavCat from "../../components/NavCategory";
 
-const productByCategory = ({ byCategory, categoriesLists }) => {
+const productByCategory = ({ byCategory, categoriesLists, categoryFilter }) => {
   const productsByCategory = byCategory.data;
   return (
     <>
       <Head>
         <title>product by category</title>
       </Head>
-      <NavCat categoriesLists={categoriesLists} />
+      <NavCat categoryFilter={categoryFilter} />
       <div className="flex">
         <ProductFilterSidebar categoriesLists={categoriesLists} />
         <div className="bg-white flex-grow pb-4 px-4" id="main-content">
@@ -105,6 +105,11 @@ export async function getStaticProps({ params }) {
   const res1 = await fetch(
     `https://digitalcrm.com/crm/api/get/products/category/list/0/10`
   );
+  const resCatFilter = await fetch(
+    `https://digitalcrm.com/crm/api/get/products/category/list/0/6`
+  );
+
+  const categoryFilter = await resCatFilter.json();
 
   const byCategory = await res.json();
 
@@ -120,6 +125,7 @@ export async function getStaticProps({ params }) {
     props: {
       byCategory,
       categoriesLists,
+      categoryFilter,
     },
   };
 }

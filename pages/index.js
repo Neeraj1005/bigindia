@@ -5,14 +5,14 @@ import HomeHeader from "../components/HomeHeader";
 import HomeCategory from "../components/HomeCategory";
 import ProductBrand from "../components/ProductBrand";
 
-export default function Home({ products, categoriesLists, productBrandLists }) {
+export default function Home({ products, categoriesLists, productBrandLists, categoryFilter }) {
   return (
     <>
       <Head>
         <title>Welcome</title>
       </Head>
 
-      <NavCat categoriesLists={categoriesLists} />
+      <NavCat categoryFilter={categoryFilter} />
 
       <HomeHeader />
 
@@ -32,11 +32,15 @@ export async function getStaticProps() {
   const res1 = await fetch(
     `https://digitalcrm.com/crm/api/get/products/category/list/0/15`
   );
+  const resCatFilter = await fetch(
+    `https://digitalcrm.com/crm/api/get/products/category/list/0/6`
+  );
   const resBrand = await fetch(
     `https://digitalcrm.com/crm/api/get/product/brands/list`
   );
   const products = await res.json();
   const categoriesLists = await res1.json();
+  const categoryFilter = await resCatFilter.json();
   const productBrandLists = await resBrand.json();
 
   if (!products) {
@@ -61,6 +65,7 @@ export async function getStaticProps() {
     props: {
       products,
       categoriesLists,
+      categoryFilter,
       productBrandLists,
     },
   };
