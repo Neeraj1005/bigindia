@@ -193,17 +193,19 @@ const Product = ({ product }) => {
             </button>
           </div>
           {showModal ? (
-            <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+            <div className="bg-gray-900 bg-opacity-70 justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
               <div className="relative w-auto my-6 mx-auto max-w-3xl">
                 {/*content*/}
-                <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                <div className="border modal-transition rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none"
+                
+                >
                   {/*header*/}
                   <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t">
-                    <h3 className="text-3xl font-semibold block">
-                      Contact this supplier
+                    <h3 className="text-2xl font-black block">
+                      Contact supplier
                     </h3>
                     <button
-                      className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                      className="p-1 ml-auto bg-transparent border-0 text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                       onClick={() => setShowModal(false)}
                     >
                       <span className="material-icons text-gray-400">
@@ -325,7 +327,7 @@ const Product = ({ product }) => {
                     </div>
                     {/*footer*/}
                     <div className="flex items-center justify-end p-6 border-t border-solid border-gray-300 rounded-b">
-                      <button
+                      {/* <button
                         className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
                         type="button"
                         style={{ transition: "all .15s ease" }}
@@ -335,7 +337,7 @@ const Product = ({ product }) => {
                         }}
                       >
                         Close
-                      </button>
+                      </button> */}
                       <button
                         className={`text-white ${
                           (!formik.isValid || formik.isSubmitting) ? 'bg-blue-200 active:bg-green-200' : 'bg-blue-500 active:bg-green-500'
