@@ -89,7 +89,7 @@ export async function getStaticPaths() {
   const res = await fetch(`https://digitalcrm.com/crm/api/get/products/list`);
   const listProduct = await res.json();
   const ids = listProduct.data.map((prod) => prod.category_slug);
-  const paths = ids.map((slug) => ({ params: { category: slug.toString() } }));
+  const paths = ids.map((slug) => ({ params: { slug: slug.toString() } }));
 
   return {
     paths,
@@ -99,7 +99,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const res = await fetch(
-    `https://digitalcrm.com/crm/api/get/products/category/${params.category}`
+    `https://digitalcrm.com/crm/api/get/products/category/${params.slug}`
   );
 
   const res1 = await fetch(
