@@ -64,7 +64,7 @@ const productByCategory = ({ byCategory, categoriesLists }) => {
                               __html: product.currency.html_code,
                             }}
                           /> */}
-                          <span>$</span>
+                            <span>$</span>
                             {product.price}
                           </p>
                         </h1>
@@ -105,11 +105,6 @@ export async function getStaticProps({ params }) {
   const res1 = await fetch(
     `https://digitalcrm.com/crm/api/get/products/category/list/0/10`
   );
-  const resCatFilter = await fetch(
-    `https://digitalcrm.com/crm/api/get/products/category/list/0/6`
-  );
-
-  const categoryFilter = await resCatFilter.json();
 
   const byCategory = await res.json();
 
@@ -125,7 +120,6 @@ export async function getStaticProps({ params }) {
     props: {
       byCategory,
       categoriesLists,
-      categoryFilter,
     },
   };
 }

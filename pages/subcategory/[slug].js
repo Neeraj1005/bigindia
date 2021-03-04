@@ -99,33 +99,20 @@ export async function getStaticProps({ params }) {
     `https://digitalcrm.com/crm/api/get/products/category/list/0/10`
   );
 
-  // const resCatFilter = await fetch(
-  //   `https://digitalcrm.com/crm/api/get/products/category/list/0/6`
-  // );
-
-  // const categoryFilter = await resCatFilter.json();
-
   const bySubcategory = await res.json();
   
   const categoriesLists = await res1.json();
-
 
   if (!categoriesLists) {
     return {
       notFound: true,
     };
   }
-  // if (!categoryFilter) {
-  //   return {
-  //     notFound: true,
-  //   };
-  // }
 
   return {
     props: {
       bySubcategory,
       categoriesLists,
-      // categoryFilter,
     },
   };
 }

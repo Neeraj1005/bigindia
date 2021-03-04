@@ -2,7 +2,6 @@ import Link from "next/link";
 import ProductFilterSidebar from "../components/ProductFilterSidebar";
 import Head from "next/head";
 import NavCat from "../components/NavCategory";
-import styles from "../styles/custom.module.css";
 
 const productLists = ({ allProducts, categoriesLists }) => {
   const myProducts = allProducts.data;
@@ -41,7 +40,7 @@ const productLists = ({ allProducts, categoriesLists }) => {
                       <a>
                         <img
                           alt="Placeholder"
-                          className={`block h-auto w-full ${styles.cardImg}`}
+                          className={`block h-auto w-full cardImg`}
                           src={product.picture ? product.picture : ""}
                         />
                       </a>
@@ -57,11 +56,7 @@ const productLists = ({ allProducts, categoriesLists }) => {
                           </a>
                         </Link>
                         <p className="text-gray-400">
-                          {/* <span
-                            dangerouslySetInnerHTML={{
-                              __html: product.currency.html_code,
-                            }}
-                          /> */}
+                          <span>$</span>
                           {product.price}
                         </p>
                       </h1>
@@ -98,16 +93,11 @@ export async function getStaticProps() {
       notFound: true,
     };
   }
-  const resCatFilter = await fetch(
-    `https://digitalcrm.com/crm/api/get/products/category/list/0/6`
-  );
-  const categoryFilter = await resCatFilter.json();
-  
+
   return {
     props: {
       allProducts,
       categoriesLists,
-      categoryFilter,
     },
   };
 }
