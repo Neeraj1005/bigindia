@@ -196,8 +196,13 @@ const Product = ({ product }) => {
             <div className="bg-gray-900 bg-opacity-70 justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
               <div className="relative w-auto my-6 mx-auto max-w-3xl">
                 {/*content*/}
-                <div className="border modal-transition rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none"
-                
+                <div className="border rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none transition"
+                x-transition:enter="transition ease-out duration-100"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition ease-out duration-100"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
                 >
                   {/*header*/}
                   <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t">

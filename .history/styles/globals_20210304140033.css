@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 .required {
-    border: 1px solid red;
+    border-right: 2px solid red;
 }
 
 .cardImg {

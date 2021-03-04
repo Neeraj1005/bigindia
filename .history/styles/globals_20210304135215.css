@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 .required {
-    border: 1px solid red;
+    border-right: 2px solid red;
 }
 
 .cardImg {
@@ -13,3 +13,6 @@
     object-fit: contain;
 }
 
+.transition {
+    transition:all .5s ease-in-out;
+}
