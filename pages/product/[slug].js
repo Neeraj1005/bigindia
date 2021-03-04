@@ -330,6 +330,7 @@ const Product = ({ product }) => {
                         type="button"
                         style={{ transition: "all .15s ease" }}
                         onClick={() => {
+                          formik.resetForm()
                           setShowModal(false);
                         }}
                       >
