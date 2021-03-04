@@ -23,7 +23,7 @@ const NavCat = ({ categoriesLists }) => {
                   <div className="container w-full flex flex-wrap justify-between mx-2">
                     {categoriesLists.map((catLists, index, arr) => (
                       <ul
-                        className={`px-10 max-w-screen sm:w-1/2 lg:w-1/6  border-b sm:border-r lg:border-b-0 pb-6 pt-6 lg:pt-3`
+                        className={`px-10 max-w-screen sm:w-1/2 lg:w-1/6  border-b pb-6 pt-6 lg:pt-3`
                         }
                       >
                       {/* <ul
