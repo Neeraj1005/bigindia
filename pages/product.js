@@ -1,13 +1,17 @@
 import Link from "next/link";
 import ProductFilterSidebar from "../components/ProductFilterSidebar";
 import Head from "next/head";
+import NavCat from "../components/NavCategory";
+import styles from "../styles/custom.module.css";
 
 const productLists = ({ allProducts, categoriesLists }) => {
+  const myProducts = allProducts.data;
   return (
     <>
       <Head>
         <title>All Products</title>
       </Head>
+      <NavCat categoriesLists={categoriesLists} />
       <div className="flex">
         <ProductFilterSidebar categoriesLists={categoriesLists} />
 
@@ -21,23 +25,23 @@ const productLists = ({ allProducts, categoriesLists }) => {
               </li>
               <li>/</li>
               <li className="px-2">
-                <a href="/product" className="no-underline text-indigo">
-                  Product
-                </a>
+                <Link href="/product">
+                  <a className="no-underline text-indigo">Product</a>
+                </Link>
               </li>
             </ol>
           </nav>
 
           <div className="container mb-12 mx-auto px-4">
             <div className="flex flex-wrap -mx-1 lg:-mx-4">
-              {allProducts.map((product) => (
+              {myProducts.map((product) => (
                 <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/5">
                   <article className="overflow-hidden rounded-lg border shadow">
-                    <Link href={`/product/${product.pro_id}`}>
+                    <Link href={`/product/${product.slug}`}>
                       <a>
                         <img
                           alt="Placeholder"
-                          className="block h-auto w-full"
+                          className={`block h-auto w-full ${styles.cardImg}`}
                           src={product.picture ? product.picture : ""}
                         />
                       </a>
@@ -47,12 +51,11 @@ const productLists = ({ allProducts, categoriesLists }) => {
                         <p className="text-sm text-gray-500">
                           {product.vendor ? product.vendor : ""}
                         </p>
-                        <a
-                          className="no-underline hover:underline text-black"
-                          href="#"
-                        >
-                          {product.name}
-                        </a>
+                        <Link href={`/product/${product.slug}`}>
+                          <a className="no-underline hover:underline text-black">
+                            {product.name}
+                          </a>
+                        </Link>
                         <p className="text-gray-400">
                           {/* <span
                             dangerouslySetInnerHTML={{
@@ -78,7 +81,7 @@ export async function getStaticProps() {
   const res = await fetch(`https://digitalcrm.com/crm/api/get/products/list`);
 
   const res1 = await fetch(
-    `https://digitalcrm.com/crm/api/get/products/category/list`
+    `https://digitalcrm.com/crm/api/get/products/category/list/0/10`
   );
 
   const allProducts = await res.json();

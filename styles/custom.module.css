@@ -1,0 +1,9 @@
+.cardImg {
+    height: 200px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.required {
+    border-right: 2px solid red;
+}

@@ -1,5 +1,5 @@
-// import Link from "next/link";
-import Image from 'next/image'
+import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -76,12 +76,14 @@ const Footer = () => {
             <h5 className="text-lg font-bold mb-6">Buy on Bigindia.com</h5>
             <ul className="list-none footer-links">
               <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-                >
-                  All Categories
-                </a>
+                <Link href="/category">
+                  <a
+                    
+                    className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
+                  >
+                    All Categories
+                  </a>
+                </Link>
               </li>
               <li className="mb-2">
                 <a
@@ -157,21 +159,22 @@ const Footer = () => {
             <span className="mr-3">
               <a href="#">
                 <Image
-                    src="/images/ios.png"
-                    alt="Picture of the ios"
-                    width={108}
-                    height={35}
+                  src="/images/ios.png"
+                  alt="Picture of the ios"
+                  width={108}
+                  height={35}
                 />
               </a>
             </span>
             <span>
               <a href="#">
-                <Image 
-                className="" 
-                src="/images/android.png" 
-                alt="Thumbnail"
-                width={108}
-                height={35} />
+                <Image
+                  className=""
+                  src="/images/android.png"
+                  alt="Thumbnail"
+                  width={108}
+                  height={35}
+                />
               </a>
             </span>
           </div>
