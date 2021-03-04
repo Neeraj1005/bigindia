@@ -4,14 +4,14 @@ import Head from "next/head";
 import NavCat from "../components/NavCategory";
 import styles from "../styles/custom.module.css";
 
-const productLists = ({ allProducts, categoriesLists, categoryFilter }) => {
+const productLists = ({ allProducts, categoriesLists }) => {
   const myProducts = allProducts.data;
   return (
     <>
       <Head>
         <title>All Products</title>
       </Head>
-      <NavCat categoryFilter={categoryFilter} />
+      <NavCat categoriesLists={categoriesLists} />
       <div className="flex">
         <ProductFilterSidebar categoriesLists={categoriesLists} />
 
