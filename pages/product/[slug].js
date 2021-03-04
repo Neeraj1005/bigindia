@@ -196,17 +196,16 @@ const Product = ({ product }) => {
             <div className="bg-gray-900 bg-opacity-70 justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
               <div className="relative w-auto my-6 mx-auto max-w-3xl">
                 {/*content*/}
-                <div className="border modal-transition rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none"
-                
-                >
+                <div className="border modal-transition rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                   {/*header*/}
                   <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t">
-                    <h3 className="text-2xl font-black block">
-                      Contact supplier
-                    </h3>
+                    <h3 className="text-2xl block">Contact Supplier</h3>
                     <button
                       className="p-1 ml-auto bg-transparent border-0 text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                      onClick={() => setShowModal(false)}
+                      onClick={() => {
+                        formik.resetForm();
+                        setShowModal(false);
+                      }}
                     >
                       <span className="material-icons text-gray-400">
                         highlight_off
@@ -227,14 +226,18 @@ const Product = ({ product }) => {
                         <div className="mb-5 w-1/3 px-2">
                           <label
                             htmlFor="name"
-                            className="font-bold mb-1 text-gray-700 block"
+                            className="mb-1 text-gray-700 block"
                           >
                             Contact name
                           </label>
                           <input
                             type="text"
                             className={`border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium 
-                            ${(formik.errors && formik.errors.name) ? 'required' : ''}
+                            ${
+                              formik.errors && formik.errors.name
+                                ? "required"
+                                : ""
+                            }
                             `}
                             placeholder=""
                             name="name"
@@ -251,7 +254,7 @@ const Product = ({ product }) => {
                         <div className="mb-5 w-1/3 px-2">
                           <label
                             htmlFor="email"
-                            className="font-bold mb-1 text-gray-700 block"
+                            className="mb-1 text-gray-700 block"
                           >
                             Email ID
                           </label>
@@ -268,13 +271,17 @@ const Product = ({ product }) => {
                         <div className="mb-5 w-1/3 px-2">
                           <label
                             htmlFor="mobile"
-                            className="font-bold mb-1 text-gray-700 block"
+                            className="mb-1 text-gray-700 block"
                           >
-                            Mobile {(formik.dirty) ? 'true' : 'false'}
+                            Mobile
                           </label>
                           <input
                             className={`border border-gray-300 w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium
-                            ${(formik.errors && formik.errors.mobile) ? 'required' : ''}`}
+                            ${
+                              formik.errors && formik.errors.mobile
+                                ? "required"
+                                : ""
+                            }`}
                             placeholder=""
                             name="mobile"
                             onChange={formik.handleChange}
@@ -293,7 +300,7 @@ const Product = ({ product }) => {
                         <div className="mb-5 w-1/2 px-2">
                           <label
                             htmlFor="address"
-                            className="font-bold mb-1 text-gray-700 block"
+                            className="mb-1 text-gray-700 block"
                           >
                             Delivery address
                           </label>
@@ -309,7 +316,7 @@ const Product = ({ product }) => {
                         <div className="mb-5 w-full px-2">
                           <label
                             htmlFor="message"
-                            className="font-bold mb-1 text-gray-700 block"
+                            className="mb-1 text-gray-700 block"
                           >
                             Message
                           </label>
@@ -340,12 +347,14 @@ const Product = ({ product }) => {
                       </button> */}
                       <button
                         className={`text-white ${
-                          (!formik.isValid || formik.isSubmitting) ? 'bg-blue-200 active:bg-green-200' : 'bg-blue-500 active:bg-green-500'
+                          !formik.isValid || formik.isSubmitting
+                            ? "bg-blue-200 active:bg-green-200"
+                            : "bg-blue-500 active:bg-green-500"
                         } font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1`}
                         type="submit"
                         disabled={formik.isSubmitting || !formik.isValid}
                       >
-                        {(formik.isSubmitting) ? 'Sending...' : 'send'}
+                        {formik.isSubmitting ? "Sending..." : "send"}
                       </button>
                     </div>
                   </form>
