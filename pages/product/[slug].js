@@ -79,10 +79,10 @@ const Product = ({ product }) => {
     <>
       <NextSeo
         title={item.name.substring(0,50)}
-        description={item.description.substring(0,100)}
+        description={(item.description) ? item.description.substring(0,100) : 'description are not provided'}
         openGraph={{
           title: `${item.name.substring(0,50)}`,
-          description: `${item.description.substring(0,100)}`,
+          description: `${(item.description) ? item.description.substring(0,100) : 'description are not provided'}`,
           images: [
             {
               url: `${product.picture}`,
