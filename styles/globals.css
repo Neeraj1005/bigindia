@@ -13,6 +13,13 @@
     object-fit: contain;
 }
 
+.homeCardImg {
+    height: 150px;
+    width: 85%;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
 .logoColor {
     color:#0d60ad;
 }

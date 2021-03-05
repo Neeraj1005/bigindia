@@ -30,7 +30,7 @@ export async function getStaticProps() {
   //   `https://digitalcrm.com/crm/api/get/products/latest/featured/0/5`
   // );
   const res = await fetch(
-    `https://digitalcrm.com/crm/api/get/products/all/0/5`
+    `https://digitalcrm.com/crm/api/get/products/all/0/18`
   );
   const res1 = await fetch(
     `https://digitalcrm.com/crm/api/get/products/category/list/0/15`

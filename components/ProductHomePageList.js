@@ -7,13 +7,13 @@ const ProductHomeList = ({ products }) => {
       <div className="container mb-12 mx-auto px-4 md:px-12">
         <div className="flex flex-wrap -mx-1 lg:-mx-4">
           {products.map((product) => (
-            <div key={product.pro_id} className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/5">
+            <div key={product.pro_id} className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/6">
               <article className="overflow-hidden rounded-lg border shadow">
                 <Link href={`/product/${product.slug}`}>
                   <a>
                     <img
                       alt={product.slug}
-                      className={`block h-auto cardImg`}
+                      className={`block h-auto homeCardImg pt-3`}
                       src={product.picture ? product.picture : "/#"}
                     />
                   </a>
@@ -25,7 +25,9 @@ const ProductHomeList = ({ products }) => {
                       href={`/product/${product.slug}`}
                     >
                       <a>
-                        {product.name}
+                        {
+                          product.name.substring(0, 15)
+                        }
                       </a>
                     </Link>
                     <p className="text-gray-400"><span dangerouslySetInnerHTML={{ __html: product.currency.html_code }} />{product.price}</p>
