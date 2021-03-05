@@ -17,7 +17,7 @@ export default function Home({ products, categoriesLists, productBrandLists }) {
           description: 'BigIndia.com offers Free Classified Ads in India. Also you can Social Network - Connect, Share Photos, Videos, Blog, and Chat.',
           images: [
             {
-              url: '../public/bigindia.png',
+              url: 'bigindia.png',
               width: 800,
               height: 600,
               alt: 'bigindia.com',
