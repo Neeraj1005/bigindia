@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import React, { useState } from "react";
 import { useFormik } from "formik";
 
@@ -77,10 +77,10 @@ const Product = ({ product }) => {
   });
   return (
     <>
-      <Head>
-        <title>{item.slug}</title>
-        <meta property="og:title" content={item.name} />
-      </Head>
+      <NextSeo
+        title={item.name}
+        description={item.description}
+      />
       <div
         key={item.pro_id}
         className="bg-white flex-grow pb-4 px-4"
