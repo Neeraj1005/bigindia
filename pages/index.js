@@ -26,8 +26,11 @@ export default function Home({ products, categoriesLists, productBrandLists }) {
 }
 
 export async function getStaticProps() {
+  // const res = await fetch(
+  //   `https://digitalcrm.com/crm/api/get/products/latest/featured/0/5`
+  // );
   const res = await fetch(
-    `https://digitalcrm.com/crm/api/get/products/latest/featured/0/5`
+    `https://digitalcrm.com/crm/api/get/products/all/0/5`
   );
   const res1 = await fetch(
     `https://digitalcrm.com/crm/api/get/products/category/list/0/15`

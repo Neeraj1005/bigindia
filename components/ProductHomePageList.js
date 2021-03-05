@@ -1,6 +1,5 @@
 // import Image from "next/image";
 import Link from "next/link";
-import styles from "../styles/custom.module.css";
 
 const ProductHomeList = ({ products }) => {
   return (
@@ -14,7 +13,7 @@ const ProductHomeList = ({ products }) => {
                   <a>
                     <img
                       alt={product.slug}
-                      className={`block h-auto ${styles.cardImg}`}
+                      className={`block h-auto cardImg`}
                       src={product.picture ? product.picture : "/#"}
                     />
                   </a>
