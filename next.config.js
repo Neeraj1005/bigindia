@@ -7,17 +7,17 @@ module.exports = {
       //   destination: '/',
       //   permanent: false,
       // },
-      {
-        source: '/category/:slug',
-        destination: '/category',
-        permanent: false,
-      },
-      // if subcatgory/slug throw an error then redirects to the all category page
-      {
-        source: '/subcategory/:slug',
-        destination: '/category',
-        permanent: false,
-      },
+      // {
+      //   source: '/category/:slug',
+      //   destination: '/category',
+      //   permanent: false,
+      // },
+      // // if subcatgory/slug throw an error then redirects to the all category page
+      // {
+      //   source: '/subcategory/:slug',
+      //   destination: '/category',
+      //   permanent: false,
+      // },
     ]
   },
 }

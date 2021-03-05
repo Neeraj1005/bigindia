@@ -28,7 +28,7 @@ const productByCategory = ({ byCategory, categoriesLists }) => {
                 </Link>
               </li>
               <li>/</li>
-              <li className="px-2">Product By Category</li>
+              <li className="px-2"></li>
             </ol>
           </nav>
 
@@ -36,10 +36,7 @@ const productByCategory = ({ byCategory, categoriesLists }) => {
             <div className="flex flex-wrap -mx-1 lg:-mx-4">
               {productsByCategory ? (
                 productsByCategory.map((product) => (
-                  <div
-                    key={product.pro_id}
-                    className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/5"
-                  >
+                  <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/5">
                     <article className="overflow-hidden rounded-lg border shadow">
                       <Link href={`/product/${product.slug}`}>
                         <a>
@@ -88,47 +85,19 @@ const productByCategory = ({ byCategory, categoriesLists }) => {
   );
 };
 
-// export async function getStaticPaths() {
-//   const res = await fetch(`https://digitalcrm.com/crm/api/get/products/list`);
-//   const listProduct = await res.json();
-//   const ids = listProduct.data.map((prod) => prod.category_slug);
-//   const paths = ids.map((slug) => ({ params: { slug: slug.toString() } }));
+export async function getStaticPaths() {
+  const res = await fetch(`https://digitalcrm.com/crm/api/get/products/list`);
+  const listProduct = await res.json();
+  const ids = listProduct.data.map((prod) => prod.category_slug);
+  const paths = ids.map((slug) => ({ params: { slug: slug.toString() } }));
 
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// }
+  return {
+    paths,
+    fallback: false,
+  };
+}
 
-// export async function getStaticProps({ params }) {
-//   const res = await fetch(
-//     `https://digitalcrm.com/crm/api/get/products/category/${params.slug}`
-//   );
-
-//   const res1 = await fetch(
-//     `https://digitalcrm.com/crm/api/get/products/category/list/0/10`
-//   );
-
-//   const byCategory = await res.json();
-
-//   const categoriesLists = await res1.json();
-
-//   if (!categoriesLists) {
-//     return {
-//       notFound: true,
-//     };
-//   }
-
-//   return {
-//     props: {
-//       byCategory,
-//       categoriesLists,
-//     },
-//   };
-// }
-
-export async function getServerSideProps({ params }) {
-  // console.log(params)
+export async function getStaticProps({ params }) {
   const res = await fetch(
     `https://digitalcrm.com/crm/api/get/products/category/${params.slug}`
   );
@@ -138,14 +107,8 @@ export async function getServerSideProps({ params }) {
   );
 
   const byCategory = await res.json();
-  // console.log("produc by category",byCategory)
-  const categoriesLists = await res1.json();
 
-  if (byCategory.status === "error") {
-    return {
-      notFound: true,
-    };
-  }
+  const categoriesLists = await res1.json();
 
   if (!categoriesLists) {
     return {
@@ -158,7 +121,7 @@ export async function getServerSideProps({ params }) {
       byCategory,
       categoriesLists,
     },
+    revalidate: 1,
   };
 }
-
 export default productByCategory;
