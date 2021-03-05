@@ -10,11 +10,19 @@ export default function Home({ products, categoriesLists, productBrandLists }) {
     <>
       <NextSeo
         title="BigIndia.com"
-        description="welcome to bigIndia."
+        description="BigIndia.com offers Free Classified Ads in India. Also you can Social Network - Connect, Share Photos, Videos, Blog, and Chat."
         openGraph={{
           url: 'https://bigindia.vercel.app/',
           title: 'BigIndia.com',
-          description: 'welcome to bigIndia.',
+          description: 'BigIndia.com offers Free Classified Ads in India. Also you can Social Network - Connect, Share Photos, Videos, Blog, and Chat.',
+          images: [
+            {
+              url: '../public/bigindia.png',
+              width: 800,
+              height: 600,
+              alt: 'bigindia.com',
+            },
+          ],
           site_name: 'BigIndia',
         }}
         twitter={{
