@@ -63,5 +63,6 @@ export async function getStaticProps() {
       categoriesLists,
       productBrandLists,
     },
+    revalidate: 1,
   };
 }
