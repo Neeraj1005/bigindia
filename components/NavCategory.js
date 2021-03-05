@@ -4,18 +4,16 @@ import Link from "next/link";
 const NavCat = ({ categoriesLists }) => {
   const [dropdownMenu, setdropdownMenu] = React.useState(false);
   return (
-    <div className="flex items-center flex-wrap mx-auto shadow-lg">
+    <div className="flex items-center flex-wrap mx-auto border-b">
       <div className="flex">
         <ul className="flex">
-          <span className="flex material-icons text-lg items-center text-gray-400">
-            filter_alt
-          </span>
-          <li className="hoverable hover:bg-white hover:text-gray-600">
+          
+          <li className="hoverable hover:bg-white hover:text-gray-600 border-r border-gray-300 mr-2">
             <button
-              className="items-center block px-4 lg:p-3 text-xs xs:text-base font-bold hover:bg-white hover:text-gray-500 text-gray-500 uppercase"
+              className="flex px-4 lg:p-3  hover:bg-white text-gray-600 hover:text-blue-500 text-md font-semibold"
               onClick={() => setdropdownMenu(!dropdownMenu)}
             >
-              Categories
+              <span className="material-icons mr-1">reorder</span> Categories
             </button>
             {dropdownMenu ? (
               <>
@@ -72,19 +70,22 @@ const NavCat = ({ categoriesLists }) => {
         </ul>
       </div>
 
-      <div className="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col">
+      <div className="lg:inline-flex lg:flex-row lg:mr-auto flex flex-col">
         {categoriesLists.map((catList) => (
           <span
             key={catList.procat_id}
-            className="lg:inline-flex lg:w-auto lg:pb-3 w-auto px-4 py-2"
+            className="lg:inline-flex lg:w-auto w-auto px-4 py-2 lg:p-3"
           >
             <Link href={`/category/${catList.slug}`}>
-              <a className="text-gray-800 hover:text-gray-600">
+              <a className="text-gray-600 hover:text-blue-500 text-md font-semibold">
                 {catList.category}
               </a>
             </Link>
           </span>
         ))}
+      </div>
+      <div className="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col pr-6">
+      <Link href="/"><a className="text-gray-600 hover:text-blue-500 text-md font-semibold">Post Your Product</a></Link>
       </div>
     </div>
   );

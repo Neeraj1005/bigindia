@@ -13,3 +13,22 @@
     object-fit: contain;
 }
 
+.logoColor {
+    color:#0d60ad;
+}
+.logoColors {
+    color:#ef5413;
+}
+
+.getStarted {
+    background:#ef5413;
+}
+.postProduct {
+    border-color:#0d60ad;
+    color:#0d60ad;
+    background-color:transparent;
+}
+
+.blueBg {
+    background-color:#0b569c;
+}

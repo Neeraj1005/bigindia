@@ -8,7 +8,7 @@ const HomeCategory = ({ categoriesLists }) => {
         <>
           {/* if index is 4 then show rfq form */}
           {index === 3 ? (
-            <div className="bg-blue-500 py-10 mb-12">
+            <div className="blueBg py-10 mb-12">
               <div className="container mx-auto px-4 md:px-12">
                 <div className="flex flex-wrap -mx-1 lg:-mx-4">
                   <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2">

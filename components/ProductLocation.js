@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const ProductLocation = () => {
   return (
-    <div className="bg-blue-500 py-10 mb-12">
+    <div className="blueBg py-10 mb-12">
       <h1 className="text-4xl font-extrabold text-white text-center">
         Choose your suppliers by cities
       </h1>

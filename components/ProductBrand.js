@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const ProductBrand = ({ productBrandLists }) => {
   return (
-    <div className="bg-blue-500 py-10">
+    <div className="blueBg py-10">
       <h1 className="text-4xl font-extrabold text-white text-center">
         Browse products by Brands
       </h1>

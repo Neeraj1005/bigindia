@@ -3,32 +3,41 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="footer-1 bg-gray-100 py-6 sm:py-6">
+    <footer className="footer-1 bg-blue-100 py-6 sm:py-6">
       <div className="container mx-auto px-4">
         <div className="sm:flex sm:flex-wrap sm:-mx-4 md:py-4">
           <div className="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6">
-            <h5 className="text-lg font-bold mb-6">Customer Services</h5>
+            <h5 className="text-lg text-blue-900 font-semibold mb-4">Customer Services</h5>
             <ul className="list-none footer-links">
-              <li className="mb-2">
+              <li className="mb-1">
                 <a
                   href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
+                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
                 >
                   Contact Us
                 </a>
               </li>
-              <li className="mb-2">
+              <li className="mb-1">
                 <a
                   href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
+                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
                 >
                   Privacy Policies
                 </a>
               </li>
-              <li className="mb-2">
+              <li className="mb-1">
                 <a
                   href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
+                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
+                >
+                  Terms & conditions
+                </a>
+              </li>              
+              
+              <li className="mb-1">
+                <a
+                  href="#"
+                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
                 >
                   Help Center
                 </a>
@@ -36,115 +45,124 @@ const Footer = () => {
             </ul>
           </div>
           <div className="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 sm:mt-0">
-            <h5 className="text-lg font-bold mb-6">About Us</h5>
+            <h5 className="text-lg text-blue-900 font-semibold mb-4">Services</h5>
             <ul className="list-none footer-links">
-              <li className="mb-2">
+              <li className="mb-1">
                 <a
                   href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
+                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
                 >
-                  About Bigindia.com
+                  Buyer
                 </a>
               </li>
-              <li className="mb-2">
+              <li className="mb-1">
                 <a
                   href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
+                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
                 >
-                  Sitemap
+                  Seller
                 </a>
               </li>
-              <li className="mb-2">
+              <li className="mb-1">
                 <a
                   href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
+                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
                 >
-                  Sell
+                  Become a seller
                 </a>
               </li>
-              <li className="mb-2">
+              <li className="mb-1">
                 <a
                   href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
+                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
+                >
+                  Post Your Requirements
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 md:mt-0">
+            <h5 className="text-lg text-blue-900 font-semibold mb-4">About Us</h5>
+            <ul className="list-none footer-links">
+              <li className="mb-1">
+                <Link href="/category">
+                  <a
+                    
+                    className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
+                  >
+                    Pricing
+                  </a>
+                </Link>
+              </li>
+              <li className="mb-1">
+                <a
+                  href="#"
+                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
+                >
+                  About Us
+                </a>
+              </li>
+              <li className="mb-1">
+                <a
+                  href="#"
+                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
                 >
                   Career
                 </a>
               </li>
-            </ul>
-          </div>
-          <div className="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 md:mt-0">
-            <h5 className="text-lg font-bold mb-6">Buy on Bigindia.com</h5>
-            <ul className="list-none footer-links">
-              <li className="mb-2">
-                <Link href="/category">
-                  <a
-                    
-                    className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-                  >
-                    All Categories
-                  </a>
-                </Link>
-              </li>
-              <li className="mb-2">
+              <li className="mb-1">
                 <a
                   href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
+                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
                 >
-                  Request for Quotation
-                </a>
-              </li>
-              <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-                >
-                  Become Member
-                </a>
-              </li>
-              <li className="mb-2">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
-                >
-                  Pricing
+                  Contact Us
                 </a>
               </li>
             </ul>
           </div>
           <div className="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 md:mt-0">
-            <h5 className="text-lg font-bold mb-6">Our Products</h5>
+            <h5 className="text-lg text-blue-900 font-semibold mb-4">Bigindia.com</h5>
             <ul className="list-none footer-links">
-              <li className="mb-2">
+              <li className="mb-1">
                 <a
                   href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
+                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
                 >
-                  Job Board Software
+                  All categories
                 </a>
               </li>
-              <li className="mb-2">
+              <li className="mb-1">
                 <a
                   href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
+                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
                 >
                   CRM Software
                 </a>
               </li>
-              <li className="mb-2">
+              <li className="mb-1">
                 <a
                   href="#"
-                  className="border-b border-solid border-transparent hover:border-purple-800 hover:text-purple-800"
+                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
                 >
-                  CMS Software
+                  Advertise
                 </a>
               </li>
+              <li className="mb-1">
+                <a
+                  href="#"
+                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
+                >
+                  Site map
+                </a>
+              </li>
+              
             </ul>
           </div>
           <div className="px-4 mt-4 sm:w-1/3 xl:w-1/6 sm:mx-auto xl:mt-0 xl:ml-auto">
-            <h5 className="text-lg font-bold mb-6 sm:text-center xl:text-left">
+            <h5 className="text-lg text-blue-900 font-semibold mb-4 sm:text-center xl:text-left">
               Subscribe newsletter
             </h5>
-            <div className="flex sm:justify-center xl:justify-start">
+            <div className="flex sm:justify-center xl:justify-start text-gray-600">
               <p>
                 Get the latest product trends and industry news sent to
                 select2007@gmail.com
@@ -203,14 +221,15 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
-        <div className="sm:-mx-4 mt-2 pt-2 sm:mt-2 sm:pt-2">
+        <div className="sm:-mx-4 mt-2 py-4 sm:mt-2 sm:pt-2 bg-white">
           <div className="sm:w-full px-4 text-center">
             © 2016-2021 Bigindia.com. All rights reserved.
           </div>
         </div>
       </div>
+      
     </footer>
+    
   );
 };
 
