@@ -1,4 +1,4 @@
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import NavCat from "../components/NavCategory";
 import ProductHomeList from "../components/ProductHomePageList";
 import HomeHeader from "../components/HomeHeader";
@@ -8,9 +8,21 @@ import ProductBrand from "../components/ProductBrand";
 export default function Home({ products, categoriesLists, productBrandLists }) {
   return (
     <>
-      <Head>
-        <title>Welcome</title>
-      </Head>
+      <NextSeo
+        title="BigIndia.com"
+        description="welcome to bigIndia."
+        openGraph={{
+          url: 'https://bigindia.vercel.app/',
+          title: 'BigIndia.com',
+          description: 'welcome to bigIndia.',
+          site_name: 'BigIndia',
+        }}
+        twitter={{
+          handle: '@bigindias',
+          site: '@bigindia.com',
+          cardType: 'summary_large_image',
+        }}
+      />
 
       <NavCat categoriesLists={categoriesLists} />
 
