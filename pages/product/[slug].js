@@ -368,29 +368,43 @@ const Product = ({ product }) => {
   );
 };
 
-export async function getStaticPaths() {
-  const res = await fetch(`https://digitalcrm.com/crm/api/get/products/list`);
-  const listProduct = await res.json();
-  const ids = listProduct.data.map((prod) => prod.slug);
-  const paths = ids.map((id) => ({ params: { slug: id.toString() } }));
+// export async function getStaticPaths() {
+//   const res = await fetch(`https://digitalcrm.com/crm/api/get/products/list`);
+//   const listProduct = await res.json();
+//   const ids = listProduct.data.map((prod) => prod.slug);
+//   const paths = ids.map((id) => ({ params: { slug: id.toString() } }));
 
-  return {
-    paths,
-    fallback: false,
-  };
-}
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// }
+
+// export async function getStaticProps({ params }) {
+//   const res = await fetch(
+//     `https://digitalcrm.com/crm/api/get/product/details/${params.slug}`
+//   );
+//   const product = await res.json();
+
+//   return {
+//     props: {
+//       product,
+//     },
+//     revalidate: 1,
+//   };
+// }
 
 export async function getServerSideProps({ params }) {
+  // console.log("helo", params);
   const res = await fetch(
     `https://digitalcrm.com/crm/api/get/product/details/${params.slug}`
   );
   const product = await res.json();
-
+  // console.log(product);
   return {
     props: {
       product,
     },
-    revalidate: 1,
   };
 }
 

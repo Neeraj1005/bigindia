@@ -1,0 +1,29 @@
+import Link from "next/link";
+import Head from "next/head";
+import React, { useState } from "react";
+import { useFormik } from "formik";
+
+const Product = ({ product }) => {
+
+  return (
+    <>
+    <div>{product.title}</div>
+    </>
+  );
+};
+
+export async function getServerSideProps({ params }) {
+  console.log("helo",params)
+  const res = await fetch(
+    `https://digitalcrm.com/crm/api/get/product/details/${params.slug}`
+  );
+  const product = await res.json();
+    console.log(product)
+  return {
+    props: {
+      product,
+    },
+  };
+}
+
+export default Product;
