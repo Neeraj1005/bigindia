@@ -121,6 +121,7 @@ export async function getStaticProps({ params }) {
       byCategory,
       categoriesLists,
     },
+    revalidate: 1,
   };
 }
 export default productByCategory;

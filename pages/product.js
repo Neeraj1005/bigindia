@@ -99,6 +99,7 @@ export async function getStaticProps() {
       allProducts,
       categoriesLists,
     },
+    revalidate: 1,
   };
 }
 export default productLists;
