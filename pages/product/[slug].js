@@ -78,8 +78,21 @@ const Product = ({ product }) => {
   return (
     <>
       <NextSeo
-        title={item.name}
-        description={item.description}
+        title={item.name.substring(65)}
+        description={item.description.substring(65)}
+        openGraph={{
+          title: `${item.name.substring(65)}`,
+          description: `${item.description.substring(65)}`,
+          images: [
+            {
+              url: `${item.picture}`,
+              width: 800,
+              height: 600,
+              alt: `${item.slug}`,
+            },
+          ],
+          site_name: 'bigindia.com',
+        }}
       />
       <div
         key={item.pro_id}
