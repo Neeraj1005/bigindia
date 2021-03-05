@@ -6,10 +6,7 @@ const NoProduct = ({ errorMessage }) => {
       <Head>
         <title>{errorMessage.message}</title>
       </Head>
-      <div>
-        <div className="h-screen w-screen bg-white flex items-center">
-          <div className="container flex flex-col md:flex-row items-center justify-center px-5 text-gray-700">
-            <div className="max-w-md">
+      <div className="mx-auto">
               <p className="text-2xl md:text-3xl font-light leading-normal">
                 {errorMessage.message}
               </p>
@@ -25,9 +22,6 @@ const NoProduct = ({ errorMessage }) => {
                 </Link>
               </p>
             </div>
-          </div>
-        </div>
-      </div>
     </>
   );
 };
