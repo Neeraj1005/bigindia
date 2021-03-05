@@ -26,7 +26,7 @@ const ProductHomeList = ({ products }) => {
                     >
                       <a>
                         {
-                          product.name.substring(0, 15)
+                          (product.name.length > 15) ? product.name.substring(0, 15) + '...' : product.name
                         }
                       </a>
                     </Link>

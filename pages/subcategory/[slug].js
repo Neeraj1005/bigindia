@@ -58,7 +58,7 @@ const productBySubcategory = ({ bySubcategory, categoriesLists }) => {
                             className="no-underline hover:underline text-black"
                             href="#"
                           >
-                            {product.name}
+                            {(product.name.length > 15) ? product.name.substring(0, 15) + '...' : product.name}
                           </a>
                           <p className="text-gray-400">
                             {/* <span

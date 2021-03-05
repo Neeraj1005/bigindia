@@ -7,7 +7,9 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="sm:flex sm:flex-wrap sm:-mx-4 md:py-4">
           <div className="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6">
-            <h5 className="text-lg text-blue-900 font-semibold mb-4">Customer Services</h5>
+            <h5 className="text-lg text-blue-900 font-semibold mb-4">
+              Customer Services
+            </h5>
             <ul className="list-none footer-links">
               <li className="mb-1">
                 <a
@@ -32,8 +34,8 @@ const Footer = () => {
                 >
                   Terms & conditions
                 </a>
-              </li>              
-              
+              </li>
+
               <li className="mb-1">
                 <a
                   href="#"
@@ -45,7 +47,9 @@ const Footer = () => {
             </ul>
           </div>
           <div className="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 sm:mt-0">
-            <h5 className="text-lg text-blue-900 font-semibold mb-4">Services</h5>
+            <h5 className="text-lg text-blue-900 font-semibold mb-4">
+              Services
+            </h5>
             <ul className="list-none footer-links">
               <li className="mb-1">
                 <a
@@ -82,14 +86,13 @@ const Footer = () => {
             </ul>
           </div>
           <div className="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 md:mt-0">
-            <h5 className="text-lg text-blue-900 font-semibold mb-4">About Us</h5>
+            <h5 className="text-lg text-blue-900 font-semibold mb-4">
+              About Us
+            </h5>
             <ul className="list-none footer-links">
               <li className="mb-1">
                 <Link href="/category">
-                  <a
-                    
-                    className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
-                  >
+                  <a className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500">
                     Pricing
                   </a>
                 </Link>
@@ -121,15 +124,16 @@ const Footer = () => {
             </ul>
           </div>
           <div className="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6 mt-8 md:mt-0">
-            <h5 className="text-lg text-blue-900 font-semibold mb-4">Bigindia.com</h5>
+            <h5 className="text-lg text-blue-900 font-semibold mb-4">
+              Bigindia.com
+            </h5>
             <ul className="list-none footer-links">
               <li className="mb-1">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
-                >
-                  All categories
-                </a>
+                <Link href="/category">
+                  <a className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500">
+                    All categories
+                  </a>
+                </Link>
               </li>
               <li className="mb-1">
                 <a
@@ -155,7 +159,6 @@ const Footer = () => {
                   Site map
                 </a>
               </li>
-              
             </ul>
           </div>
           <div className="px-4 mt-4 sm:w-1/3 xl:w-1/6 sm:mx-auto xl:mt-0 xl:ml-auto">
@@ -227,9 +230,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      
     </footer>
-    
   );
 };
 
