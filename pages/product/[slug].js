@@ -380,7 +380,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const res = await fetch(
     `https://digitalcrm.com/crm/api/get/product/details/${params.slug}`
   );
