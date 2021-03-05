@@ -2,9 +2,10 @@ import Link from "next/link";
 import ProductFilterSidebar from "../../components/ProductFilterSidebar";
 import Head from "next/head";
 import NavCat from "../../components/NavCategory";
+import NoProduct from "../../components/NoProduct";
 
 const productByCategory = ({ byCategory, categoriesLists }) => {
-  const productsByCategory = byCategory.data;
+  const productsByCategory = byCategory.data ?? null;
   return (
     <>
       <Head>
@@ -27,8 +28,6 @@ const productByCategory = ({ byCategory, categoriesLists }) => {
                   <a className="no-underline text-indigo">Product</a>
                 </Link>
               </li>
-              <li>/</li>
-              <li className="px-2">Product By Category</li>
             </ol>
           </nav>
 
@@ -77,7 +76,7 @@ const productByCategory = ({ byCategory, categoriesLists }) => {
                 ))
               ) : (
                 <>
-                  <h3>No Products Found</h3>
+                  <NoProduct errorMessage={byCategory} />
                 </>
               )}
             </div>
@@ -141,11 +140,11 @@ export async function getServerSideProps({ params }) {
   // console.log("produc by category",byCategory)
   const categoriesLists = await res1.json();
 
-  if (byCategory.status === "error") {
-    return {
-      notFound: true,
-    };
-  }
+  // if (byCategory.status === "error") {
+  //   return {
+  //     notFound: true,
+  //   };
+  // }
 
   if (!categoriesLists) {
     return {
