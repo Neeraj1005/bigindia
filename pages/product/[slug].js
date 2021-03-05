@@ -78,14 +78,14 @@ const Product = ({ product }) => {
   return (
     <>
       <NextSeo
-        title={item.name.substring(65)}
-        description={item.description.substring(65)}
+        title={item.name.substring(0,45)}
+        description={item.description.substring(0,65)}
         openGraph={{
-          title: `${item.name.substring(65)}`,
-          description: `${item.description.substring(65)}`,
+          title: `${item.name.substring(0,45)}`,
+          description: `${item.description.substring(0,65)}`,
           images: [
             {
-              url: `${item.picture}`,
+              url: `${product.picture}`,
               width: 800,
               height: 600,
               alt: `${item.slug}`,
