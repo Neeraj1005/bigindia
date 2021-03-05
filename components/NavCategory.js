@@ -19,14 +19,13 @@ const NavCat = ({ categoriesLists }) => {
             </button>
             {dropdownMenu ? (
               <>
-                <div className="mega-menu mb-16 sm:mb-0 border-t shadow bg-white">
+                <div className="mx-w-screen mega-menu mb-16 sm:mb-0 border-t shadow bg-white">
                   <div className="container w-full flex flex-wrap justify-between mx-2">
                     {categoriesLists.map((catLists, index, arr) => (
                       <ul
-                        className={`px-10 max-w-screen sm:w-1/2 lg:w-1/6  border-b pb-6 pt-6 lg:pt-3`
-                        }
+                        className={`px-5 max-w-screen sm:w-1/2 lg:w-1/6  border-b pb-6 pt-6 lg:pt-3`}
                       >
-                      {/* <ul
+                        {/* <ul
                         className={
                           index === arr.length - 1
                             ? "px-10 w-full sm:w-1/2 lg:w-1/6 border-gray-600 pb-6 pt-6 lg:pt-3"
@@ -41,15 +40,19 @@ const NavCat = ({ categoriesLists }) => {
                           </h3>
                         </div>
 
-                        {catLists.tbl_product_subcategory.map((subCat) => (
-                          <p className="text-gray-800 text-sm leading-7">
-                            <Link href={`subcategory/${subCat.slug}`}>
-                              <a className="hover:text-blue-500" href="#">
-                                {subCat.category}
-                              </a>
-                            </Link>
-                          </p>
-                        ))}
+                        {catLists.tbl_product_subcategory.map(
+                          (subCat, index) => (
+                            <p className="text-gray-800 text-sm leading-7">
+                              {index < 5 ? (
+                                <Link href={`subcategory/${subCat.slug}`}>
+                                  <a className="hover:text-blue-500" href="#">
+                                    {subCat.category}
+                                  </a>
+                                </Link>
+                              ) : null}
+                            </p>
+                          )
+                        )}
 
                         <div className="flex items-center py-3">
                           <a
