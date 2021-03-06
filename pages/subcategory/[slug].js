@@ -133,20 +133,22 @@ export async function getServerSideProps({ params }) {
   const res = await fetch(
     `https://digitalcrm.com/crm/api/get/products/subcategory/${params.slug}`
   );
+  const bySubcategory = await res.json().catch((error) => {
+    console.error("Error occur in subcategory slug:", error);
+  });
 
   const res1 = await fetch(
     `https://digitalcrm.com/crm/api/get/products/category/list/0/10`
   );
+  const categoriesLists = await res1.json().catch((error) => {
+    console.error("erro in fetching catgory:", error);
+  });
 
-  const bySubcategory = await res.json();
-  //   console.log(bySubcategory)
-  const categoriesLists = await res1.json();
-
-  // if (bySubcategory.status === "error") {
-  //   return {
-  //     notFound: true,
-  //   };
-  // }
+  if (!bySubcategory) {
+    return {
+      notFound: true,
+    };
+  }
 
   if (!categoriesLists) {
     return {
