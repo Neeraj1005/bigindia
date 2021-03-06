@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-
+import Layout from "../components/Layout";
 const NotFound = () => {
   const router = useRouter();
   const [counter, setCounter] = useState(3);
@@ -22,7 +22,9 @@ const NotFound = () => {
   });
 
   return (
-    <div>
+    
+    <>
+    <Layout>
       <div className="h-screen w-screen bg-white flex items-center">
         <div className="container flex flex-col md:flex-row items-center justify-center px-5 text-gray-700">
           <div className="max-w-md">
@@ -46,7 +48,8 @@ const NotFound = () => {
           </div>
         </div>
       </div>
-    </div>
+      </Layout>
+    </>
   );
 };
 

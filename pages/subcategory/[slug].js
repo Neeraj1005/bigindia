@@ -3,11 +3,13 @@ import ProductFilterSidebar from "../../components/ProductFilterSidebar";
 import Head from "next/head";
 import NavCat from "../../components/NavCategory";
 import NoProduct from "../../components/NoProduct";
+import Layout from "../../components/Layout";
 
 const productBySubcategory = ({ bySubcategory, categoriesLists }) => {
   const bySubcategoryData = bySubcategory.data ?? null;
   return (
     <>
+      <Layout>
       <Head>
         <title>product by subcategory</title>
       </Head>
@@ -83,6 +85,7 @@ const productBySubcategory = ({ bySubcategory, categoriesLists }) => {
           </div>
         </div>
       </div>
+      </Layout>
     </>
   );
 };

@@ -1,8 +1,10 @@
 import Link from "next/link";
+import Layout from "../../components/Layout";
 
 const allCategory = ({ allCategory }) => {
   return (
     <>
+    <Layout>
       {allCategory.map((category) => (
         <>
           <div
@@ -33,6 +35,7 @@ const allCategory = ({ allCategory }) => {
           </div>
         </>
       ))}
+      </Layout>
     </>
   );
 };

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { NextSeo } from "next-seo";
 import React, { useState } from "react";
 import { useFormik } from "formik";
+import Layout from "../../components/Layout";
 
 const Product = ({ product }) => {
   const item = product.product;
@@ -77,6 +78,7 @@ const Product = ({ product }) => {
   });
   return (
     <>
+      <Layout>
       <NextSeo
         title={item.name.substring(0,50)}
         description={(item.description) ? item.description.substring(0,100) : 'description are not provided'}
@@ -377,6 +379,7 @@ const Product = ({ product }) => {
           ) : null}
         </div>
       </div>
+      </Layout>
     </>
   );
 };

@@ -2,11 +2,13 @@ import Link from "next/link";
 import ProductFilterSidebar from "../components/ProductFilterSidebar";
 import Head from "next/head";
 import NavCat from "../components/NavCategory";
+import Layout from "../components/Layout";
 
 const productLists = ({ allProducts, categoriesLists }) => {
   const myProducts = allProducts.data;
   return (
     <>
+      <Layout>
       <Head>
         <title>All Products</title>
       </Head>
@@ -68,6 +70,7 @@ const productLists = ({ allProducts, categoriesLists }) => {
           </div>
         </div>
       </div>
+      </Layout>
     </>
   );
 };

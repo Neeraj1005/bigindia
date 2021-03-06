@@ -4,10 +4,12 @@ import ProductHomeList from "../components/ProductHomePageList";
 import HomeHeader from "../components/HomeHeader";
 import HomeCategory from "../components/HomeCategory";
 import ProductBrand from "../components/ProductBrand";
+import Layout from "../components/Layout";
 
 export default function Home({ products, categoriesLists, productBrandLists }) {
   return (
     <>
+    <Layout>
       <NextSeo
         title="BigIndia.com"
         description="BigIndia.com offers Free Classified Ads in India. Also you can Social Network - Connect, Share Photos, Videos, Blog, and Chat."
@@ -41,6 +43,7 @@ export default function Home({ products, categoriesLists, productBrandLists }) {
       <HomeCategory categoriesLists={categoriesLists} />
 
       <ProductBrand productBrandLists={productBrandLists} />
+      </Layout>
     </>
   );
 }
