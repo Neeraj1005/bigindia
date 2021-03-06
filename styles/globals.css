@@ -39,3 +39,29 @@
 .blueBg {
     background-color:#0b569c;
 }
+
+.facebook {background:#3b5998;}
+.facebook:hover {background:#4666ab;}
+.twitter {background:#00acee;}
+.twitter:hover {background:#0ebbfe;}
+.youtube {background:#FF0000;}
+.youtube:hover {background:#fb4242;}
+.instagram {background:#8a3ab9;}
+.instagram:hover {background:#a241db;}
+
+
+.company-image {
+background-image: url(/images/amazon-office.jpg);
+    background-origin: inherit;
+    background-size: 100% auto;
+    object-fit: cover;
+    background-position: center;
+}
+.company-logo {
+    width: 90%;
+    height: 100%;
+    object-fit: contain;
+    justify-content: center;
+    align-items: center;
+	
+}
