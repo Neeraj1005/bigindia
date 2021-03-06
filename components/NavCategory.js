@@ -2,14 +2,18 @@ import React from "react";
 import Link from "next/link";
 
 const NavCat = ({ categoriesLists }) => {
-  const [dropdownMenu, setdropdownMenu] = React.useState(false);
+  // const [dropdownMenu, setdropdownMenu] = React.useState(false);
   return (
     <div className="flex items-center flex-wrap mx-auto border-b">
       <div className="flex">
         <ul className="flex">
-          
           <li className="hoverable hover:bg-white hover:text-gray-600 border-r border-gray-300 mr-2">
-            <button
+            <Link href="category">
+              <a className="flex px-4 lg:p-3  hover:bg-white text-gray-600 hover:text-blue-500 text-md font-semibold">
+                <span className="material-icons mr-1">reorder</span> Categories
+              </a>
+            </Link>
+            {/* <button
               className="flex px-4 lg:p-3  hover:bg-white text-gray-600 hover:text-blue-500 text-md font-semibold"
               onClick={() => setdropdownMenu(!dropdownMenu)}
             >
@@ -23,13 +27,6 @@ const NavCat = ({ categoriesLists }) => {
                       <ul
                         className={`px-5 max-w-screen sm:w-1/2 lg:w-1/6  border-b pb-6 pt-6 lg:pt-3`}
                       >
-                        {/* <ul
-                        className={
-                          index === arr.length - 1
-                            ? "px-10 w-full sm:w-1/2 lg:w-1/6 border-gray-600 pb-6 pt-6 lg:pt-3"
-                            : "px-10 max-w-screen sm:w-1/2 lg:w-1/6  border-b sm:border-r lg:border-b-0 pb-6 pt-6 lg:pt-3"
-                        }
-                      > */}
                         <div className="flex items-center">
                           <h3 className="font-semibold text-gray-900 mb-2">
                             <Link href={`category/${catLists.slug}`}>
@@ -65,7 +62,7 @@ const NavCat = ({ categoriesLists }) => {
                   </div>
                 </div>
               </>
-            ) : null}
+            ) : null} */}
           </li>
         </ul>
       </div>
@@ -85,7 +82,11 @@ const NavCat = ({ categoriesLists }) => {
         ))}
       </div>
       <div className="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col pr-6">
-      <Link href="/"><a className="text-gray-600 hover:text-blue-500 text-md font-semibold">Post Your Product</a></Link>
+        <Link href="/">
+          <a className="text-gray-600 hover:text-blue-500 text-md font-semibold">
+            Post Your Product
+          </a>
+        </Link>
       </div>
     </div>
   );
