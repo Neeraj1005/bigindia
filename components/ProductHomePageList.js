@@ -5,9 +5,17 @@ const ProductHomeList = ({ products }) => {
   return (
     <>
       <div className="container mb-12 mx-auto px-4 md:px-12">
+        <h3 className="text-2xl font-bold no-underline hover:underline text-black">
+          <Link href="/product">
+            <a>Latest Products</a>
+          </Link>
+        </h3>
         <div className="flex flex-wrap -mx-1 lg:-mx-4">
           {products.map((product) => (
-            <div key={product.pro_id} className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/6">
+            <div
+              key={product.pro_id}
+              className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/6"
+            >
               <article className="overflow-hidden rounded-lg border shadow">
                 <Link href={`/product/${product.slug}`}>
                   <a>
@@ -25,12 +33,19 @@ const ProductHomeList = ({ products }) => {
                       href={`/product/${product.slug}`}
                     >
                       <a>
-                        {
-                          (product.name.length > 15) ? product.name.substring(0, 15) + '...' : product.name
-                        }
+                        {product.name.length > 15
+                          ? product.name.substring(0, 15) + "..."
+                          : product.name}
                       </a>
                     </Link>
-                    <p className="text-gray-400"><span dangerouslySetInnerHTML={{ __html: product.currency.html_code }} />{product.price}</p>
+                    <p className="text-gray-400">
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: product.currency.html_code,
+                        }}
+                      />
+                      {product.price}
+                    </p>
                   </h1>
                 </header>
                 <footer className="flex items-center justify-between leading-none p-2 md:p-4">
@@ -39,7 +54,7 @@ const ProductHomeList = ({ products }) => {
                     href="#"
                   >
                     <p className="text-sm text-gray-400">
-                      {(product.vendor) ? 'By: ' + product.vendor : ''}
+                      {product.vendor ? "By: " + product.vendor : ""}
                     </p>
                   </a>
                   <a

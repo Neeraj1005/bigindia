@@ -121,13 +121,15 @@ const HomeCategory = ({ categoriesLists }) => {
           <div className="container mb-12 mx-auto px-4 md:px-12">
             <div className="flex flex-wrap -mx-1 lg:-mx-4">
               {/* subcategory start */}
-              {category.tbl_product_subcategory.map((subcategory) => (
+              {category.tbl_product_subcategory.map((subcategory, index) => (
                 <div className="px-5 w-full md:w-1/2 lg:w-1/6">
-                  <Link href={`subcategory/${subcategory.slug}`}>
-                    <a className="hover:text-indigo-500">
-                      {subcategory.category}
-                    </a>
-                  </Link>
+                  {index <= 35 ? (
+                    <Link href={`subcategory/${subcategory.slug}`}>
+                      <a className="hover:text-indigo-500">
+                        {subcategory.category}
+                      </a>
+                    </Link>
+                  ) : null}
                 </div>
               ))}
               {/* subcategory end */}

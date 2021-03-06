@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ProductFilterSidebar from "../../components/ProductFilterSidebar";
 import Head from "next/head";
-import NavCat from "../../components/NavCategory";
+// import NavCat from "../../components/NavCategory";
 import NoProduct from "../../components/NoProduct";
 import Layout from "../../components/Layout";
 
@@ -13,11 +13,11 @@ const productByCategory = ({ byCategory, categoriesLists }) => {
       <Head>
         <title>product by category</title>
       </Head>
-      <NavCat categoriesLists={categoriesLists} />
+      {/* <NavCat categoriesLists={categoriesLists} /> */}
       <div className="flex">
         <ProductFilterSidebar categoriesLists={categoriesLists} />
         <div className="bg-white flex-grow pb-4 px-4" id="main-content">
-          <nav className="container">
+          {/* <nav className="container">
             <ol className="list-reset py-4 pl-4 rounded flex text-gray-400">
               <li className="px-2">
                 <Link href="/" className="no-underline text-indigo">
@@ -31,7 +31,7 @@ const productByCategory = ({ byCategory, categoriesLists }) => {
                 </Link>
               </li>
             </ol>
-          </nav>
+          </nav> */}
 
           <div className="container mb-12 mx-auto px-4">
             <div className="flex flex-wrap -mx-1 lg:-mx-4">
