@@ -23,7 +23,7 @@ export default function Pricing() {
         <h2 class="text-lg mb-4">FREE</h2>
         <div class="mb-6">
           <span class="block text-5xl pb-2">0.00</span>
-          <span class="text-sm text-grey">Monthly</span>
+          <span class="text-sm text-grey">First Year</span>
         </div>
         <ul class="text-grey leading-loose list-reset mb-6">
           <li>5 Products</li>
@@ -38,11 +38,11 @@ export default function Pricing() {
       <div class="text-center border border-gray-300 p-10 lg:py-16 rounded lg:shadow-lg">
         <h2 class="text-lg mb-4">POPULAR</h2>
         <div class="mb-6">
-          <span class="block text-5xl pb-2">₹ 1999</span>
-          <span class="text-sm text-grey">Yearly</span>
+          <span class="block text-5xl pb-2 text-gray-800"><span className="text-gray-400">₹</span>99</span>
+          <span class="text-sm text-grey">Monthly</span>
         </div>
         <ul class="text-grey-dark leading-loose list-reset mb-6">
-          <li>50 Products</li>
+          <li>20 Products</li>
           <li>Company Profile Page</li>
           <li>100 Leads Monthly</li>
         </ul>
@@ -54,8 +54,8 @@ export default function Pricing() {
       <div class="text-center border border-gray-300 p-10 rounded">
         <h2 class="text-lg mb-4">ENTERPRISE</h2>
         <div class="mb-6">
-          <span class="block text-5xl pb-2">₹ 4999</span>
-          <span class="text-sm text-grey">Yearly</span>
+        <span class="block text-5xl pb-2 text-gray-800"><span className="text-gray-400">₹</span>199</span>
+          <span class="text-sm text-grey">Monthly</span>
         </div>
         <ul class="text-grey leading-loose list-reset mb-6">
           <li>Unlimited Products</li>
