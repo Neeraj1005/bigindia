@@ -3,6 +3,7 @@ import { NextSeo } from "next-seo";
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import Layout from "../../components/Layout";
+import Image from 'next/image'
 
 const Product = ({ product }) => {
   const item = product.product;
@@ -182,7 +183,7 @@ const Product = ({ product }) => {
               <a href="#" className="text-xl text-blue-500 my-3 block">
                 {item.vendor ? item.vendor : ""}
               </a>
-              <p className="text-red-600 font-bold text-xl my-2">
+              <p className="textOrange text-xl my-2">
                 <span dangerouslySetInnerHTML={{ __html: currencyCode }} />
                 {item.price}
               </p>
@@ -195,29 +196,43 @@ const Product = ({ product }) => {
                 </span>
               </p>
               <div>
-                <p className="text-xl mt-5 mb-2">Product Details</p>
+                <p className="text-xl mt-5 mb-2 text-gray-800">Product Details</p>
                 <p
-                  className="text-gray-500"
+                  className="text-gray-500 mb-5"
                   dangerouslySetInnerHTML={{ __html: item.description }}
                 />
                 <Link href={`/category/${item.tbl_productcategory.slug}`}>
                   <a>
-                    <p className="mt-4">
-                      <span className="border border-gray-400 rounded-full py-1 px-3">
+                      <span className="border border-gray-300 text-gray-500 rounded-full py-1 px-3">
                         {item.tbl_productcategory.category}
                       </span>
-                    </p>
+                    
                   </a>
                 </Link>
               </div>
             </div>
             <div className="w-full md:w-1/2 lg:w-1/6">
+              <div className="shadow border px-4 pt-4 pb-7 bg-gray-100">
+              <div className="block mb-7">
+              <Link href="/company"><a className="hover:text-blue-500">
+                <img className="" src="../images/brand6.jpg" width="125" />
+                <p className="text-lg">Usha Fans Limited</p>
+                </a></Link>
+                <p className="text-gray-500">New Delhi, India</p>
+                <div className=" mt-2 text-lg">
+                <p className="text-gray-600 flex"><span class="material-icons mr-1">local_phone</span> 9856256325</p>
+                </div>
+                <p>
+                <Link href="/company"><a className="text-gray-800 flex my-1 hover:text-blue-500"><span className="material-icons text-red-500 mr-1">smart_display</span> Company Video</a></Link>
+                </p>
+              </div>
               <button
-                className="block w-full focus:outline-none border border-transparent py-4 px-4 rounded-lg shadow-sm text-center text-white bg-blue-500 hover:bg-blue-600 font-medium"
+                className="block w-full focus:outline-none border border-transparent py-3 px-4 rounded shadow-sm text-center text-white bg-blue-500 hover:bg-blue-600 font-medium"
                 onClick={() => setShowModal(true)}
               >
                 Contact Supplier
               </button>
+              </div>
             </div>
             {showModal ? (
               <div className="bg-gray-900 bg-opacity-70 justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
@@ -391,6 +406,7 @@ const Product = ({ product }) => {
             ) : null}
           </div>
         </div>
+        <script src="https://kit.fontawesome.com/a2189951ff.js"></script>
       </Layout>
     </>
   );

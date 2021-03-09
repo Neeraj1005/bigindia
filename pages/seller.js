@@ -1,17 +1,17 @@
 import Link from "next/link";
 import Head from "next/head";
 import Layout from "../components/Layout";
-export default function Advertise() {
+export default function Seller() {
     return (
         <>
             <Layout>
             <Head>
-                <title>Advertise with us</title>
+                <title>Seller benefits</title>
             </Head>
             <div className="text-gray-700 body-font">
   <div class="container mx-auto flex px-5 pb-20 pt-7 md:flex-row flex-col">
     <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Advertise with us
+      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Welcome, Seller
         
       </h1>
       <p class="mb-8 leading-relaxed">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p>

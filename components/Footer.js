@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="footer-1 bg-blue-100 py-6 sm:py-6">
+    <footer className="footer-1 bg-gray-100 py-6 sm:py-6">
       <div className="container mx-auto px-4">
         <div className="sm:flex sm:flex-wrap sm:-mx-4 md:py-4">
           <div className="px-4 sm:w-1/2 md:w-1/4 xl:w-1/6">
@@ -12,37 +12,25 @@ const Footer = () => {
             </h5>
             <ul className="list-none footer-links">
               <li className="mb-1">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
-                >
-                  Contact Us
-                </a>
+                <Link href="/contact">
+                  <a className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500">Contact Us</a>
+              </Link>
               </li>
               <li className="mb-1">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
-                >
-                  Privacy Policies
-                </a>
+              <Link href="/privacy">
+                  <a className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500">Privacy Policies</a>
+              </Link>
               </li>
               <li className="mb-1">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
-                >
-                  Terms & conditions
-                </a>
+              <Link href="/terms">
+                  <a className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500">Terms & Conditions</a>
+              </Link>
               </li>
 
               <li className="mb-1">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
-                >
-                  Help Center
-                </a>
+              <Link href="/helpCenter">
+                  <a className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500">Help Center</a>
+              </Link>
               </li>
             </ul>
           </div>
@@ -52,20 +40,14 @@ const Footer = () => {
             </h5>
             <ul className="list-none footer-links">
               <li className="mb-1">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
-                >
-                  Buyer
-                </a>
+              <Link href="/buyer">
+                  <a className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500">Buyer</a>
+              </Link>
               </li>
               <li className="mb-1">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
-                >
-                  Seller
-                </a>
+              <Link href="/seller">
+                  <a className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500">Seller</a>
+              </Link>
               </li>
               <li className="mb-1">
                 <a
@@ -91,35 +73,26 @@ const Footer = () => {
             </h5>
             <ul className="list-none footer-links">
               <li className="mb-1">
-                <Link href="/category">
+                <Link href="/pricing">
                   <a className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500">
                     Pricing
                   </a>
                 </Link>
               </li>
               <li className="mb-1">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
-                >
-                  About Us
-                </a>
+              <Link href="/about">
+                  <a className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500">About Us</a>
+              </Link>
               </li>
               <li className="mb-1">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
-                >
-                  Career
-                </a>
+              <Link href="/career">
+                  <a className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500">Career</a>
+              </Link>
               </li>
               <li className="mb-1">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
-                >
-                  Contact Us
-                </a>
+              <Link href="/contact">
+                  <a className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500">Contact Us</a>
+              </Link>
               </li>
             </ul>
           </div>
@@ -136,28 +109,19 @@ const Footer = () => {
                 </Link>
               </li>
               <li className="mb-1">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
-                >
-                  CRM Software
-                </a>
+              <Link href="/crmSoftware">
+                  <a className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500">CRM Software</a>
+              </Link>
               </li>
               <li className="mb-1">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
-                >
-                  Advertise
-                </a>
+              <Link href="/advertise">
+                  <a className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500">Advertise</a>
+              </Link>
               </li>
               <li className="mb-1">
-                <a
-                  href="#"
-                  className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500"
-                >
-                  Site map
-                </a>
+              <Link href="/siteMap">
+                  <a className="border-b border-solid border-transparent  text-gray-600 hover:text-blue-500">Site Map</a>
+              </Link>
               </li>
             </ul>
           </div>
@@ -224,7 +188,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="sm:-mx-4 mt-2 py-4 sm:mt-2 sm:pt-2 bg-white">
+        <div className="sm:-mx-4 mt-2 sm:mt-2 sm:pt-2 ">
           <div className="sm:w-full px-4 text-center">
             © 2016-2021 Bigindia.com. All rights reserved.
           </div>
