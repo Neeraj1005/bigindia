@@ -9,14 +9,14 @@ export default function CRMSoftware() {
                 <title>Buy CRM SOftware</title>
             </Head>
             <div className="text-gray-700 body-font">
-  <div class="container mx-auto flex px-5 pb-20 pt-7 md:flex-row flex-col">
+  <div class="container mx-auto flex px-40 pb-20 pt-7 md:flex-row flex-col">
     <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Sales CRM Software
       </h1>
       <p class="mb-8 leading-relaxed">Sales CRM is a term that refers to practice, strategy and technology that an enterprise can adopt to manage and analyze interactions and data throughout the customer lifecycle with the goal of improving business relationships with customers</p>
       <p class="mb-8 leading-relaxed">Using DigitalCRM.com Sales CRM Software, companies can manage customer data, access business information, automate sales and marketing process and increase productivity</p>
 
-      <p class="mb-8 leading-relaxed">Main features of DigitalCRM.com Sales CRM software are:</p>
+      <p class="mb-8 leading-relaxed text-xl">Main features of DigitalCRM.com Sales CRM software are:</p>
 
       <p class="mb-3 font-bold text-xl leading-relaxed">Contact Management</p>
       <p class="mb-8 leading-relaxed">All Contacts are displayed in a single dashboard and the related data is displayed like name, email address, mobile number, city etc. Contact management in DigitalCRM.com Sales CRM software enables you to have all the important data at your disposal, in a clear layout and connected to lead management</p>
@@ -40,7 +40,7 @@ export default function CRMSoftware() {
 
 <p class="mb-8 leading-relaxed">DigitalCRM software offers complete sales information through reports and analytics. In this way you will be able to get statistics, technical analysis, and a more detailed overview of various modules, including accounts, leads, customers, and sales.</p>
 
-D<p class="mb-8 leading-relaxed">igitalCRM.com is the best online Sales CRM Software</p>
+<p class="mb-8 leading-relaxed">DigitalCRM.com is the best online Sales CRM Software</p>
 
 <p class="mb-8 leading-relaxed">Using DigitalCRM.com Sales CRM Software, companies can manage customer data, access business information, automate sales and marketing process and increase business productivity.</p>
       <div class="flex justify-center">

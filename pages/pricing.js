@@ -9,20 +9,66 @@ export default function Pricing() {
                 <title>Pricing Bigindia</title>
             </Head>
             <div className="text-gray-700 body-font">
-  <div class="container mx-auto flex px-5 pb-20 pt-7 md:flex-row flex-col">
-    <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Plans & Pricing
-        
-      </h1>
-      <p class="mb-8 leading-relaxed">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p>
-      <div class="flex justify-center">
-        <button class="inline-flex text-white getStarted border-0 py-2 px-6 focus:outline-none hover:shadow-lg rounded text-lg">Get started</button>
+            <div class="container mx-auto px-40 py-10">
+  
+  <header class="text-center mb-16">
+    <h1 class="text-5xl mb-4">Our Plans</h1>
+    <p class="leading-normal text-grey-dark md:w-1/2 md:mx-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti aperiam, repellat expedita velit incidunt laborum consequuntur iure quisquam blanditiis. Voluptate.</p>
+  </header>
+  
+  <div class="lg:flex lg:items-center lg:-mx-2">
+    
+    <div class="mb-4 lg:mb-0 lg:w-1/3 lg:px-2">
+      <div class="text-center border border-gray-300 p-10 rounded">
+        <h2 class="text-lg mb-4">FREE</h2>
+        <div class="mb-6">
+          <span class="block text-5xl pb-2">0.00</span>
+          <span class="text-sm text-grey">Monthly</span>
+        </div>
+        <ul class="text-grey leading-loose list-reset mb-6">
+          <li>5 Products</li>
+          <li>10 Leads monthly</li>
+          <li>5GB Storage</li>
+        </ul>
+        <a class="text-sm tracking-wide uppercase inline-block bg-white border postProduct font-bold w-full p-3 rounded no-underline" href="#">Get started</a>
       </div>
     </div>
-    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-      <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600/edf2f7/a5afbd" />
+    
+    <div class="mb-4 lg:mb-0 lg:w-1/3 lg:px-2">
+      <div class="text-center border border-gray-300 p-10 lg:py-16 rounded lg:shadow-lg">
+        <h2 class="text-lg mb-4">POPULAR</h2>
+        <div class="mb-6">
+          <span class="block text-5xl pb-2">₹ 1999</span>
+          <span class="text-sm text-grey">Yearly</span>
+        </div>
+        <ul class="text-grey-dark leading-loose list-reset mb-6">
+          <li>50 Products</li>
+          <li>Company Profile Page</li>
+          <li>100 Leads Monthly</li>
+        </ul>
+        <a class="text-sm tracking-wide uppercase inline-block border text-white lg:border-none getStarted lg:hover:shadow-xl lg:text-white font-bold w-full p-3 rounded no-underline" href="#">Get started</a>
+      </div>
     </div>
+    
+    <div class="mb-4 lg:mb-0 lg:w-1/3 lg:px-2">
+      <div class="text-center border border-gray-300 p-10 rounded">
+        <h2 class="text-lg mb-4">ENTERPRISE</h2>
+        <div class="mb-6">
+          <span class="block text-5xl pb-2">₹ 4999</span>
+          <span class="text-sm text-grey">Yearly</span>
+        </div>
+        <ul class="text-grey leading-loose list-reset mb-6">
+          <li>Unlimited Products</li>
+          <li>Company Profile Page</li>
+          <li>Free CRM Software</li>
+          <li>Unlimited Leads</li>
+        </ul>
+        <a class="text-sm tracking-wide uppercase inline-block bg-white border postProduct font-bold w-full p-3 rounded no-underline" href="#">Get started</a>
+      </div>
+    </div>
+    
   </div>
+</div>
 </div>
     </Layout>
             </>
