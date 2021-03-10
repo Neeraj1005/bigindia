@@ -54,7 +54,7 @@
 
 
 .company-image {
-background-image: url(/images/amazon-office.jpg);
+    /* background-image: url(/images/amazon-office.jpg); */
     background-origin: inherit;
     background-size: 100% auto;
     object-fit: cover;
@@ -67,4 +67,10 @@ background-image: url(/images/amazon-office.jpg);
     justify-content: center;
     align-items: center;
 	
+}
+
+.company-logo-sm {
+    width: 90%;
+    height: 55px;
+    object-fit: contain;
 }

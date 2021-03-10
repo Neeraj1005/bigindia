@@ -3,12 +3,23 @@ import { NextSeo } from "next-seo";
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import Layout from "../../components/Layout";
-import Image from 'next/image'
+import Image from "next/image";
 
 const Product = ({ product }) => {
   const item = product.product;
-  const currencyCode = (product) ? product.user.currency.html_code : null;
-  const slidePics = (product) ? product.slidePics : null;
+  const {
+    c_name,
+    slug,
+    c_mobileNum,
+    c_whatsappNum,
+    logo,
+    address,
+    country_id,
+  } = item.company;
+  const country = (country_id === product.c_country.id) ? product.c_country.name : null;
+
+  const currencyCode = product ? product.user.currency.html_code : null;
+  const slidePics = product ? product.slidePics : null;
   const itemUnits = item.tbl_units ? item.tbl_units.sortname : "";
 
   // Modal popup
@@ -196,42 +207,62 @@ const Product = ({ product }) => {
                 </span>
               </p>
               <div>
-                <p className="text-xl mt-5 mb-2 text-gray-800">Product Details</p>
+                <p className="text-xl mt-5 mb-2 text-gray-800">
+                  Product Details
+                </p>
                 <p
                   className="text-gray-500 mb-5"
                   dangerouslySetInnerHTML={{ __html: item.description }}
                 />
                 <Link href={`/category/${item.tbl_productcategory.slug}`}>
                   <a>
-                      <span className="border border-gray-300 text-gray-500 rounded-full py-1 px-3">
-                        {item.tbl_productcategory.category}
-                      </span>
-                    
+                    <span className="border border-gray-300 text-gray-500 rounded-full py-1 px-3">
+                      {item.tbl_productcategory.category}
+                    </span>
                   </a>
                 </Link>
               </div>
             </div>
             <div className="w-full md:w-1/2 lg:w-1/6">
               <div className="shadow border px-4 pt-4 pb-7 bg-gray-100">
-              <div className="block mb-7">
-              <Link href="/company"><a className="hover:text-blue-500">
-                <img className="" src="../images/brand6.jpg" width="125" />
-                <p className="text-lg">Usha Fans Limited</p>
-                </a></Link>
-                <p className="text-gray-500">New Delhi, India</p>
-                <div className=" mt-2 text-lg">
-                <p className="text-gray-600 flex"><span class="material-icons mr-1">local_phone</span> 9856256325</p>
+                <div className="block mb-7">
+                  <Link href={`/company/${slug}`}>
+                    <a className="hover:text-blue-500">
+                      <img
+                        className="company-logo-sm"
+                        src={logo}
+                      />
+                      <p className="text-lg">{c_name}</p>
+                    </a>
+                  </Link>
+                  <p className="text-gray-500">{address}, {country}</p>
+                  <div className=" mt-2 text-lg">
+                    <p className="text-gray-600 flex">
+                      <span class="material-icons mr-1">local_phone</span>{" "}
+                      {c_mobileNum}
+                    </p>
+                    <p className="text-gray-600 flex">
+                      <span class="material-icons mr-1">local_phone</span>{" "}
+                      {c_whatsappNum}
+                    </p>
+                  </div>
+                  {/* <p>
+                    <Link href="/company">
+                      <a className="text-gray-800 flex my-1 hover:text-blue-500">
+                        <span className="material-icons text-red-500 mr-1">
+                          smart_display
+                        </span>{" "}
+                        Company Video
+                      </a>
+                    </Link>
+                  </p> */}
                 </div>
-                <p>
-                <Link href="/company"><a className="text-gray-800 flex my-1 hover:text-blue-500"><span className="material-icons text-red-500 mr-1">smart_display</span> Company Video</a></Link>
-                </p>
-              </div>
-              <button
-                className="block w-full focus:outline-none border border-transparent py-3 px-4 rounded shadow-sm text-center text-white bg-blue-500 hover:bg-blue-600 font-medium"
-                onClick={() => setShowModal(true)}
-              >
-                Contact Supplier
-              </button>
+                <button
+                  className="block w-full focus:outline-none border border-transparent py-3 px-4 rounded shadow-sm text-center text-white bg-blue-500 hover:bg-blue-600 font-medium"
+                  onClick={() => setShowModal(true)}
+                >
+                  Contact Supplier
+                </button>
               </div>
             </div>
             {showModal ? (
@@ -406,7 +437,6 @@ const Product = ({ product }) => {
             ) : null}
           </div>
         </div>
-        <script src="https://kit.fontawesome.com/a2189951ff.js"></script>
       </Layout>
     </>
   );
